@@ -64,6 +64,6 @@ Le site n'est pas encore en ligne, patience !
 
 ## 📅 Changelog
 
-```
-Version 0 — Premier vrai commit d'une base qui fonctionne avec une navbar fonctionnelle et des pages. Au prochain commit, terminer le switch sombre/clair et faire la homepage
-```
+**Version 0** — Premier vrai commit d'une base qui fonctionne avec une navbar fonctionnelle et des pages. Au prochain commit, terminer le switch sombre/clair et faire la homepage
+
+**Version 0.1** — Nouveau commit, switch des themes via la fonction ButtonSwitchTheme
