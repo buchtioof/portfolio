@@ -1,16 +1,69 @@
-# React + Vite
+# Portfolio perso
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🌟 Présentation
+Le projet est de mettre un pied dans le dev web avec JS en faisant mon portfolio de projets professionnels en utilisant React et ensuite l'héberger.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧱 Technologies utilisées
 
-## React Compiler
+- **React**
+- **CSS3**
+- **Google Fonts**
+- **NPM**
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+---
 
-## Expanding the ESLint configuration
+## Roadmap
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 
+
+---
+
+## ⚙️ Structure du projet
+
+Seuls les fichiers principaux sont mentionnés
+
+```
+portfolio/
+│
+├── index.html              # Ce que le navigateur recoit
+│
+├── src/                    # Coeur du projet
+│   └── assets/css
+│       └── index.css       # Feuille de style générale
+│       └── navbar.css      # Feuille de style de la navbar
+│       └── scheme.css      # Feuille de style des couleurs/polices
+│
+├── components/
+│       └── Navbar.jsx
+│       └── elements        # Dossier des éléments dynamiques
+│           └──Icon.jsx     # Condition qui change l'icone du theme en fonction de celui du PC
+│
+├── App.jsx                 # Squelette du projet
+│
+├── main.jsx
+│
+└── README.md               # Vue d'ensemble du projet
+```
+
+---
+
+## Crédits
+
+- [Phosphor Icons](https://github.com/phosphor-icons/react) pour les icones
+- [use-prefers-color-scheme](https://www.npmjs.com/package/use-prefers-color-scheme) pour détecter le theme utilisateur
+
+---
+
+## 🚀 Mise en ligne
+
+Le site n'est pas encore en ligne, patience !
+
+---
+
+## 📅 Changelog
+
+```
+Version 0 — Premier vrai commit d'une base qui fonctionne avec une navbar fonctionnelle et des pages. Au prochain commit, terminer le switch sombre/clair et faire la homepage
+```
