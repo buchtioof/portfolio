@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom'
-import { CursorifyProvider } from '@cursorify/react'
 import './assets/css/scheme.css'
 import './assets/css/index.css'
 import Home from './pages/Home.jsx'
@@ -8,7 +7,6 @@ import Navbar from './components/Navbar.jsx'
 
 export default function App() {
   return (
-    <CursorifyProvider>
       <div className="App">
         <main className="AppMain">
           <Routes>
@@ -18,6 +16,5 @@ export default function App() {
           <Navbar />
         </main>
       </div>
-    </CursorifyProvider>
   );
 }

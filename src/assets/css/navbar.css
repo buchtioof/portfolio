@@ -1,14 +1,22 @@
 .navbar {
     position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: auto;
     bottom: 30px;
     left: 50%;
+    padding: 10px 20px;
     transform: translateX(-50%);
+}
+
+.backdrop-blur {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 99px;
-    padding: 10px 20px;
-    display: inline-block;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -19,7 +27,6 @@
     font-weight: 500;
     text-align: center;
     text-decoration: none;
-    margin: 0 10px;
     display: inline-flex;
     align-items: center;
     padding: 10px 15px;
@@ -27,15 +34,22 @@
     transition: 0.2s ease-out;
 }
 
-.navbar a i {
-    margin-right: 10px;
+span {
+    margin-left: 8px;
+    font-size: 16px;
 }
 
-.navbar a.icon-only i {
-    margin-right: 0;
+.icon {
+    color: var(--monochrome);;
+    display: flex;
+    border-radius: 999px;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    transition: 0.2s ease-out;
 }
 
-.navbar a:hover {
+.navbar a:hover, .icon:hover {
     background: rgba(255, 255, 255, 0.24);
     border-radius: 99px;
     box-shadow: 0 0px 20px rgba(70, 70, 70, 0.1);
@@ -43,3 +57,4 @@
     -webkit-backdrop-filter: blur(8px);
     transform: scale(1.05);
 }
+

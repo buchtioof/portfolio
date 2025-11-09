@@ -29,7 +29,7 @@ export default function ButtonSwitchTheme() {
     const isDark = theme === "dark";
 
     return (
-        <button className="icon-only" type="button" aria-label={isDark ? "Passer au thème clair" : "Passer au thème sombre"} onClick={toggleTheme}>
+        <button className="icon" type="button" aria-label={isDark ? "Passer au thème clair" : "Passer au thème sombre"} onClick={toggleTheme}>
             {isDark ? <MoonIcon size={24} weight="bold" /> : <SunIcon size={24} weight="bold" />}
         </button>
     );
