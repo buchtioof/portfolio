@@ -1,0 +1,39 @@
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Instrument+Serif:regular,italic);
+@import url(https://fonts.googleapis.com/css?family=Sora:100,200,300,regular,500,600,700,800);
+
+/* Light mode scheme */
+:root {
+    --background: #ffffff;
+    --monochrome: rgb(0, 0, 0);
+    --cursor-blur: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+
+    /* Icons homepage colors */
+    --github-color: #000000;
+    --dribbble-color: #ff1eaf;
+    --linkedin-color: #2800aa;
+    --contact-color: #ff5a1e;
+
+    /* Nav colors */
+    --navicons-home: #ff4848;
+    --navicons-work: #ffb12a;
+    --navicons-color: #454545;
+}
+
+/* Dark mode scheme */
+[data-theme="dark"] {
+    --background: #000000;
+    --monochrome: #ffffff;
+    --cursor-blur: linear-gradient(120deg, #94b4ff 0%, #d380f6 100%);
+    
+    /* Icons homepage colors */
+    --github-color: #ffffff;
+    --dribbble-color: #ff81d3;
+    --linkedin-color: #9d7fff;
+    --contact-color: #ff946d;
+    
+    /* Nav colors */
+    --navicons-home: #ff4848;
+    --navicons-work: #ffd359;
+    --navicons-color: #d2d2d2;
+}
