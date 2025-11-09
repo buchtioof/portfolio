@@ -1,0 +1,22 @@
+import { Link } from "react-router-dom"
+import "../assets/css/navbar.css"
+import ButtonSwitchTheme from "../components/elements/Icon.jsx"
+import { HouseIcon, PaletteIcon } from "@phosphor-icons/react"
+
+export default function Navbar() {
+  return (
+    <div className="navbar">
+      <Link to="/" className="nav-link">
+        <HouseIcon size={24} weight="bold" />
+        <span>Accueil</span>
+      </Link>
+      <Link to="/work" className="nav-link">
+        <PaletteIcon size={24} weight="bold" />
+        <span>Travaux</span>
+      </Link>
+      <button className="icon-only" type="button">
+        <ButtonSwitchTheme/>
+      </button>
+    </div>
+  );
+}
