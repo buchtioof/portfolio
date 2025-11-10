@@ -1,20 +1,17 @@
+import { GithubLogoIcon, DribbbleLogoIcon, LinkedinLogoIcon, AtIcon } from "@phosphor-icons/react"
+import { TypeAnimation } from 'react-type-animation';
+
 export default function Home() {
     return (
         <div className="container">
-            {/* Intro */}
-                <div className="paragraph">
-                    <p>
-                        salut monde <img
-                        className="globe_emoji"
-                        src="/img/globe.gif"
-                        alt="Earth globe in 3D rotating on itself"
-                    />! je suis ramzi. je suis actuellement étudiant en informatique au <a className="p_link" target="_blank" rel="noopener noreferrer" href="https://www.univ-spn.fr/">
-                            Conservatoire National des Arts et Métiers 
-                        </a>à Paris.
-                    </p>
-                </div>
-
-            {/* Links */}
+            <TypeAnimation
+                sequence={[
+                    'salut monde 👋 ! je suis ramzi. actuellement étudiant en informatique au Conservatoire National des Arts et Métiers à Paris.',
+                ]}
+                wrapper="p"
+                speed={50}
+                style={{ fontSize: '2em', display: 'inline-block', textAlign: 'center' }}
+            />
             <div className="links">
                 <a
                     className="button github"
@@ -23,10 +20,7 @@ export default function Home() {
                     href="https://github.com/buchtioof"
                     aria-label="Github"
                 >
-                    <i
-                        className="ph-bold ph-github-logo"
-                        style={{ color: 'var(--github-color)', fontSize: 24 }}
-                    />
+                    <GithubLogoIcon size={24} weight="bold" />
                     <span>Github</span>
                 </a>
 
@@ -37,10 +31,7 @@ export default function Home() {
                     href="https://dribbble.com/squickk"
                     aria-label="Dribbble"
                 >
-                    <i
-                        className="ph-bold ph-dribbble-logo"
-                        style={{ color: 'var(--dribbble-color)', fontSize: 24 }}
-                    />
+                    <DribbbleLogoIcon size={24} weight="bold" />
                     <span>Dribbble</span>
                 </a>
 
@@ -51,10 +42,7 @@ export default function Home() {
                     href="https://www.linkedin.com/in/i-663436272"
                     aria-label="LinkedIn"
                 >
-                    <i
-                        className="ph-bold ph-linkedin-logo"
-                        style={{ color: 'var(--linkedin-color)', fontSize: 24 }}
-                    />
+                    <LinkedinLogoIcon size={24} weight="bold" />
                     <span>Linkedin</span>
                 </a>
 
@@ -62,13 +50,10 @@ export default function Home() {
                     className="button mail"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="mailto:ramzi.idir@proton.me"
+                    href="mailto:idir.ramzi@icloud.com"
                     aria-label="Contact"
                 >
-                    <i
-                        className="ph-bold ph-at"
-                        style={{ color: 'var(--contact-color)', fontSize: 24 }}
-                    />
+                    <AtIcon size={24} weight="bold" />
                     <span>Contact</span>
                 </a>
             </div>
