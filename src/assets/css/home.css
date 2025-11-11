@@ -23,6 +23,53 @@ main {
     box-sizing: border-box;
 }
 
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.hero_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    /* apparition depuis le bas, terminaison un peu vers le haut */
+    transform: translateY(24px);
+    opacity: 0;
+    animation: slideFadeUp 700ms cubic-bezier(.22,.9,.32,1) forwards;
+}
+
+@keyframes slideFadeUp {
+    from {
+        transform: translateY(24px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(-12px);
+        opacity: 1;
+    }
+}
+
+/* Respecter la préférence de réduction des animations */
+@media (prefers-reduced-motion: reduce) {
+    .hero_head {
+        transform: none;
+        opacity: 1;
+        animation: none;
+    }
+}
+
+/* Resize mini earth*/
+.globe_emoji {
+	width: 42px;
+	height: 42px;
+}
+
 .paragraph {
     width: fit-content;
     height: auto;

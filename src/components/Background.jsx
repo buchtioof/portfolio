@@ -24,7 +24,7 @@ export default function Background() {
         <Squares 
             speed={0.05} 
             squareSize={80}
-            direction='none' // up, down, left, right, diagonal
+            direction='down' // up, down, left, right, diagonal
             borderColor='#13131c5e'
         />
         <div className="noise-overlay"></div>

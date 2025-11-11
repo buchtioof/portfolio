@@ -39,10 +39,10 @@ body {
 
 h1 {
     font-family: "Instrument Serif";
-    font-style: normal;
+    font-style: bold;
     font-weight: 200;
     text-align: left;
-    font-size: 52px;
+    font-size: 6rem;
     letter-spacing: 0;
 }
 
@@ -51,5 +51,5 @@ p {
     font-style: italic;
     font-weight: 400;
     text-align: left;
-    font-size: 28px;
+    font-size: 24px;
 }

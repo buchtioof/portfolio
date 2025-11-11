@@ -7,14 +7,20 @@ export default function Home() {
     return (
         <div className="container">
             <img src="./assets/img/logo.webp" alt="Logo du portfolio" />
-            <TypeAnimation
-                sequence={[
-                    'salut monde 👋 ! je suis ramzi. actuellement étudiant en informatique au Conservatoire National des Arts et Métiers à Paris.',
-                ]}
-                wrapper="p"
-                speed={50}
-                style={{ fontSize: '2em', display: 'inline-block', textAlign: 'center' }}
-            />
+            <div className="hero">
+                <div className="hero_head">
+                    <h1>salut monde !</h1>      
+                    <img class="globe_emoji" src="./public/img/icons/globe.gif" alt="Earth globe in 3D rotating on itself"></img>
+                </div>
+                <TypeAnimation
+                    sequence={[
+                        'je suis ramzi. actuellement étudiant en informatique au Conservatoire National des Arts et Métiers à Paris.',
+                    ]}
+                    wrapper="p"
+                    speed={50}
+                    style={{ fontSize: '2em', display: 'inline-block', textAlign: 'center' }}
+                />
+            </div>
             <div className="links">
                 <a
                     className="button github"
@@ -24,7 +30,7 @@ export default function Home() {
                     aria-label="Github"
                 >
                     <GithubLogoIcon size={24} weight="bold" />
-                    <span>Github</span>
+                    <span>/buchtioof</span>
                 </a>
 
                 <a
@@ -35,18 +41,18 @@ export default function Home() {
                     aria-label="Dribbble"
                 >
                     <DribbbleLogoIcon size={24} weight="bold" />
-                    <span>Dribbble</span>
+                    <span>/ramziii__</span>
                 </a>
 
                 <a
                     className="button linkedin"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://www.linkedin.com/in/i-663436272"
+                    href="https://www.linkedin.com/in/ramziidir/"
                     aria-label="LinkedIn"
                 >
                     <LinkedinLogoIcon size={24} weight="bold" />
-                    <span>Linkedin</span>
+                    <span>/ramziidir</span>
                 </a>
 
                 <a
@@ -57,7 +63,7 @@ export default function Home() {
                     aria-label="Contact"
                 >
                     <AtIcon size={24} weight="bold" />
-                    <span>Contact</span>
+                    <span>e-mail</span>
                 </a>
             </div>
         </div>
