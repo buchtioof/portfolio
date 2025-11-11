@@ -5,18 +5,9 @@ Le projet est de mettre un pied dans le dev web avec JS en faisant mon portfolio
 
 ---
 
-## 🧱 Technologies utilisées
-
-- **React**
-- **CSS3**
-- **Google Fonts**
-- **NPM**
-
----
-
 ## Roadmap
 
-- 
+- A FAIRE
 
 ---
 
@@ -52,13 +43,15 @@ portfolio/
 ## Crédits
 
 - [Phosphor Icons](https://github.com/phosphor-icons/react) pour les icones
+- [Google Fonts](https://fonts.google.com/) pour les polices ([Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif), [Sora](https://fonts.google.com/specimen/Sora/))
 - [use-prefers-color-scheme](https://www.npmjs.com/package/use-prefers-color-scheme) pour détecter le theme utilisateur
+- [Librairie reactbits](https://www.reactbits.dev/backgrounds/aurora) pour le fond aurore (utilise [ogl](https://www.npmjs.com/package/ogl))
 
 ---
 
 ## 🚀 Mise en ligne
 
-Le site n'est pas encore en ligne, patience !
+[Lien vers le site](https://www.ramziidir.dev) hébergé sur Vercel
 
 ---
 
@@ -67,3 +60,5 @@ Le site n'est pas encore en ligne, patience !
 **Version 0** — Premier vrai commit d'une base qui fonctionne avec une navbar fonctionnelle et des pages. Au prochain commit, terminer le switch sombre/clair et faire la homepage
 
 **Version 0.1** — Nouveau commit, switch des themes via la fonction ButtonSwitchTheme
+
+**Version 0.2** — Page accueil quasi finie (manque le logo animé), SwitchTheme enlevé pour le moment (pb de couleurs avec l'effet Aurore), Site hébergé sur vercel

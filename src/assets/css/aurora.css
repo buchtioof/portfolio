@@ -6,5 +6,4 @@
     transform: translateX(-50%);
     height: 100%;
     z-index: -1;
-    filter: blur(500px);
 }
