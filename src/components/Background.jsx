@@ -1,5 +1,7 @@
 import Aurora from './elements/Aurora.jsx'
-import '../assets/css/aurora.css';
+import Squares from './elements/Grid.jsx'
+import '../assets/css/elements/aurora.css';
+import '../assets/css/elements/grid.css';
 
 export default function Background() {
   return (
@@ -18,6 +20,12 @@ export default function Background() {
           blend={0.7}
           amplitude={0.2}
           speed={1.0}
+        />
+        <Squares 
+            speed={0.05} 
+            squareSize={80}
+            direction='none' // up, down, left, right, diagonal
+            borderColor='#13131c5e'
         />
         <div className="noise-overlay"></div>
     </div>
