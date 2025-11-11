@@ -37,7 +37,7 @@ export default function Home() {
                     className="button dribbble"
                     target="_blank"
                     rel="noopener noreferrer"
-                    href="https://dribbble.com/squickk"
+                    href="https://dribbble.com/ramziii__"
                     aria-label="Dribbble"
                 >
                     <DribbbleLogoIcon size={24} weight="bold" />
