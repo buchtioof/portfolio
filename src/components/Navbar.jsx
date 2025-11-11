@@ -14,7 +14,7 @@ export default function Navbar() {
         <PaletteIcon size={24} weight="bold" />
         <span>Travaux</span>
       </Link>
-      <SwitchTheme/>
+      {/* <SwitchTheme/> */}
     </div>
   );
 }
