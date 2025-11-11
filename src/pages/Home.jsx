@@ -1,5 +1,6 @@
 import { GithubLogoIcon, DribbbleLogoIcon, LinkedinLogoIcon, AtIcon } from "@phosphor-icons/react"
 import { TypeAnimation } from 'react-type-animation';
+import '../assets/css/home.css';
 
 export default function Home() {
     return (
