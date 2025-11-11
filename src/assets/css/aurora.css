@@ -7,3 +7,23 @@
     height: 100%;
     z-index: -1;
 }
+
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* * z-index: 0 
+   * (Votre aurore est à z-index: -1, 
+   * votre contenu .AppMain sera à z-index: 1) 
+   */
+  z-index: 0;
+  
+  /* Bruit SVG en ligne */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cfilter id='n' x='0' y='0'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.7'/%3E%3C/svg%3E");
+  
+  /* Ajustez l'opacité selon vos goûts */
+  opacity: 0.1;
+  pointer-events: none; 
+}

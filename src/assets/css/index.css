@@ -29,6 +29,12 @@ body {
     min-height: 100vh;
 }
 
+/* Assure que le contenu est au-dessus du fond */
+.AppMain {
+  position: relative;
+  z-index: 1;
+}
+
 /* Content styling */
 
 h1 {

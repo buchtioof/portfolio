@@ -1,7 +1,7 @@
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 import { useEffect, useRef } from 'react';
 
-import '../assets/css/aurora.css';
+
 
 const VERT = `#version 300 es
 in vec2 position;
@@ -13,9 +13,13 @@ void main() {
 const FRAG = `#version 300 es
 precision highp float;
 
+// MODIFIÉ : On passe de 6 à 10
+const int MAX_STOPS = 10;
+
 uniform float uTime;
 uniform float uAmplitude;
-uniform vec3 uColorStops[3];
+uniform vec3 uColorStops[MAX_STOPS]; 
+uniform int uColorStopCount; 
 uniform vec2 uResolution;
 uniform float uBlend;
 
@@ -72,25 +76,30 @@ struct ColorStop {
 
 #define COLOR_RAMP(colors, factor, finalColor) {              \
   int index = 0;                                            \
-  for (int i = 0; i < 2; i++) {                               \
+  for (int i = 0; i < MAX_STOPS - 1; i++) {                   \
+     if (i >= uColorStopCount - 1) break;                   \
      ColorStop currentColor = colors[i];                    \
      bool isInBetween = currentColor.position <= factor;    \
      index = int(mix(float(index), float(i), float(isInBetween))); \
   }                                                         \
   ColorStop currentColor = colors[index];                   \
-  ColorStop nextColor = colors[index + 1];                  \
+  ColorStop nextColor = colors[min(index + 1, uColorStopCount - 1)]; \
   float range = nextColor.position - currentColor.position; \
   float lerpFactor = (factor - currentColor.position) / range; \
+  if (range == 0.0) { lerpFactor = 0.0; }                   \
   finalColor = mix(currentColor.color, nextColor.color, lerpFactor); \
 }
 
 void main() {
   vec2 uv = gl_FragCoord.xy / uResolution;
   
-  ColorStop colors[3];
-  colors[0] = ColorStop(uColorStops[0], 0.0);
-  colors[1] = ColorStop(uColorStops[1], 0.5);
-  colors[2] = ColorStop(uColorStops[2], 1.0);
+  ColorStop colors[MAX_STOPS];
+  
+  float step = 1.0 / (float(uColorStopCount) - 1.0);
+  for (int i = 0; i < MAX_STOPS; i++) {
+    if (i >= uColorStopCount) break;
+    colors[i] = ColorStop(uColorStops[i], float(i) * step);
+  }
   
   vec3 rampColor;
   COLOR_RAMP(colors, uv.x, rampColor);
@@ -108,6 +117,9 @@ void main() {
   fragColor = vec4(auroraColor * auroraAlpha, auroraAlpha);
 }
 `;
+
+// MODIFIÉ : On passe de 6 à 10
+const MAX_STOPS = 10;
 
 export default function Aurora(props) {
   const { colorStops = ['#5227FF', '#7cff67', '#5227FF'], amplitude = 1.0, blend = 0.5 } = props;
@@ -148,11 +160,18 @@ export default function Aurora(props) {
     if (geometry.attributes.uv) {
       delete geometry.attributes.uv;
     }
-
-    const colorStopsArray = colorStops.map(hex => {
+    
+    const currentStops = props.colorStops || colorStops;
+    const colorStopsArray = currentStops.map(hex => {
       const c = new Color(hex);
       return [c.r, c.g, c.b];
     });
+
+    const paddedColorStops = new Array(MAX_STOPS).fill([0, 0, 0]);
+    for (let i = 0; i < colorStopsArray.length; i++) {
+      if (i >= MAX_STOPS) break;
+      paddedColorStops[i] = colorStopsArray[i];
+    }
 
     program = new Program(gl, {
       vertex: VERT,
@@ -160,7 +179,8 @@ export default function Aurora(props) {
       uniforms: {
         uTime: { value: 0 },
         uAmplitude: { value: amplitude },
-        uColorStops: { value: colorStopsArray },
+        uColorStops: { value: paddedColorStops }, 
+        uColorStopCount: { value: currentStops.length }, 
         uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
         uBlend: { value: blend }
       }
@@ -176,11 +196,21 @@ export default function Aurora(props) {
       program.uniforms.uTime.value = time * speed * 0.1;
       program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
       program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
+
       const stops = propsRef.current.colorStops ?? colorStops;
-      program.uniforms.uColorStops.value = stops.map(hex => {
+      const stopsArray = stops.map(hex => {
         const c = new Color(hex);
         return [c.r, c.g, c.b];
       });
+      const paddedStops = new Array(MAX_STOPS).fill([0, 0, 0]);
+      for (let i = 0; i < stopsArray.length; i++) {
+        if (i >= MAX_STOPS) break;
+        paddedStops[i] = stopsArray[i];
+      }
+      
+      program.uniforms.uColorStops.value = paddedStops;
+      program.uniforms.uColorStopCount.value = stops.length;
+
       renderer.render({ scene: mesh });
     };
     animateId = requestAnimationFrame(update);
