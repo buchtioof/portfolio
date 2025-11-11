@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { SunIcon, MoonIcon } from "@phosphor-icons/react";
 
-export default function ButtonSwitchTheme() {
+export default function SwitchTheme() {
 
     // Fonction pour déterminer le thème au premier chargement.
     const getInitialTheme = () => {

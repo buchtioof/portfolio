@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "../assets/css/navbar.css"
-import ButtonSwitchTheme from "./elements/ButtonSwitchTheme.jsx"
+import SwitchTheme from "./elements/SwitchTheme.jsx"
 import { HouseIcon, PaletteIcon } from "@phosphor-icons/react"
 
 export default function Navbar() {
@@ -14,7 +14,7 @@ export default function Navbar() {
         <PaletteIcon size={24} weight="bold" />
         <span>Travaux</span>
       </Link>
-      <ButtonSwitchTheme/>
+      <SwitchTheme/>
     </div>
   );
 }

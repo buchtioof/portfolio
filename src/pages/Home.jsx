@@ -4,6 +4,7 @@ import { TypeAnimation } from 'react-type-animation';
 export default function Home() {
     return (
         <div className="container">
+            <img src="./assets/img/logo.webp" alt="Logo du portfolio" />
             <TypeAnimation
                 sequence={[
                     'salut monde 👋 ! je suis ramzi. actuellement étudiant en informatique au Conservatoire National des Arts et Métiers à Paris.',

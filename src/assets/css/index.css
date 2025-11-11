@@ -1,6 +1,11 @@
 /* CSS for every pages */
 
-/* Reset and color page */
+/* Reset */
+#root {
+	width: 100%;
+	height: 100%;
+}
+
 body,
 h1,
 p,
@@ -11,7 +16,10 @@ span {
     top: 0px;
 }
 
+/* Body styling */
+
 body {
+	background-color: var(--background);
     color: var(--monochrome);
     transition: color 0.3s; /* Pour une transition douce */
     /* Centrage horizontal & vertical */
@@ -21,7 +29,7 @@ body {
     min-height: 100vh;
 }
 
-/* Content settings */
+/* Content styling */
 
 h1 {
     font-family: "Instrument Serif";
@@ -38,6 +46,25 @@ p {
     font-weight: 400;
     text-align: left;
     font-size: 28px;
+}
+
+/* Home styling */
+
+.container {
+    max-width: 900px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.paragraph {
+    width: fit-content;
+    height: auto;
 }
 
 .p_link {
@@ -63,25 +90,6 @@ p {
     text-align: center;
     font-size: 18px;
     letter-spacing: -1.5px;
-}
-
-/* Content styling */
-
-.container {
-    max-width: 900px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 48px;
-    padding: 24px;
-    box-sizing: border-box;
-}
-
-.paragraph {
-    width: fit-content;
-    height: auto;
 }
 
 .links{

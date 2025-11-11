@@ -1,0 +1,10 @@
+.aurora-container {
+    position: fixed;
+    width: 100%;
+    top: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+    z-index: -1;
+    filter: blur(500px);
+}
