@@ -27,9 +27,7 @@ portfolio/
 │       └── scheme.css      # Feuille de style des couleurs/polices
 │
 ├── components/
-│       └── Navbar.jsx
 │       └── elements        # Dossier des éléments dynamiques
-│           └──Icon.jsx     # Condition qui change l'icone du theme en fonction de celui du PC
 │
 ├── App.jsx                 # Squelette du projet
 │
@@ -45,7 +43,8 @@ portfolio/
 - [Phosphor Icons](https://github.com/phosphor-icons/react) pour les icones
 - [Google Fonts](https://fonts.google.com/) pour les polices ([Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif), [Sora](https://fonts.google.com/specimen/Sora/))
 - [use-prefers-color-scheme](https://www.npmjs.com/package/use-prefers-color-scheme) pour détecter le theme utilisateur
-- [Librairie reactbits](https://www.reactbits.dev/backgrounds/aurora) pour le fond aurore (utilise [ogl](https://www.npmjs.com/package/ogl))
+- [Librairie reactbits](https://www.reactbits.dev/backgrounds/aurora)  (utilise [ogl](https://www.npmjs.com/package/ogl))
+- [react-type-animation](https://www.npmjs.com/package/react-type-animation)
 
 ---
 
