@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import "../assets/css/navbar.css"
 import SwitchTheme from "./elements/SwitchTheme.jsx"
 import { HouseIcon, PaletteIcon, FlowerIcon } from "@phosphor-icons/react"
