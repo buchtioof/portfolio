@@ -12,12 +12,11 @@ export default function App() {
         <Background />
         <main className="AppMain">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} /> 
             <Route path="/work" element={<Work />} />
           </Routes>
           <Navbar />
         </main>
       </div>
-      
   );
 }

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import "../assets/css/navbar.css"
 import SwitchTheme from "./elements/SwitchTheme.jsx"
-import { HouseIcon, PaletteIcon } from "@phosphor-icons/react"
+import { HouseIcon, PaletteIcon, FlowerIcon } from "@phosphor-icons/react"
 
 export default function Navbar() {
   return (
@@ -13,6 +13,10 @@ export default function Navbar() {
       <Link to="/work">
         <PaletteIcon size={24} weight="bold" />
         <span>Travaux</span>
+      </Link>
+      <Link to="/feed">
+        <FlowerIcon size={24} weight="bold" />
+        <span>Plus</span>
       </Link>
       {/* <SwitchTheme/> */}
     </div>
