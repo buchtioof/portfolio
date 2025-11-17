@@ -6,18 +6,14 @@ import { HouseIcon, PaletteIcon, FlowerIcon } from "@phosphor-icons/react"
 export default function Navbar() {
   return (
     <div className="navbar backdrop-blur">
-      <Link to="/">
+      <a href="#home">
         <HouseIcon size={24} weight="bold" />
         <span>Accueil</span>
-      </Link>
-      <Link to="/work">
+      </a>
+      <a href="#works">
         <PaletteIcon size={24} weight="bold" />
         <span>Travaux</span>
-      </Link>
-      <Link to="/feed">
-        <FlowerIcon size={24} weight="bold" />
-        <span>Plus</span>
-      </Link>
+      </a>
       {/* <SwitchTheme/> */}
     </div>
   );

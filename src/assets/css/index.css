@@ -16,17 +16,32 @@ span {
     top: 0px;
 }
 
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
 /* Body styling */
 
 body {
 	background-color: var(--background);
     color: var(--monochrome);
     transition: color 0.3s; /* Pour une transition douce */
-    /* Centrage horizontal & vertical */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+}
+
+.AppMain > section {
+  /* Chaque section prend au moins 100% de la hauteur de l'écran */
+  min-height: 100vh; 
+
+  /* Reprise du style de centrage de home.css */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  box-sizing: border-box;
+  padding: 24px;
 }
 
 /* Assure que le contenu est au-dessus du fond */
