@@ -56,8 +56,10 @@ portfolio/
 
 ## 📅 Changelog
 
-**Version 0** — Premier vrai commit d'une base qui fonctionne avec une navbar fonctionnelle et des pages. Au prochain commit, terminer le switch sombre/clair et faire la homepage
+**Version 0** — Commit de base, demarrage du projet React avec Vite
 
-**Version 0.1** — Nouveau commit, switch des themes via la fonction ButtonSwitchTheme
+**Version 0.1** — Création de la homepage et définition des pages + animations
 
-**Version 0.2** — Page accueil quasi finie (manque le logo animé), SwitchTheme enlevé pour le moment (pb de couleurs avec l'effet Aurore), Site hébergé sur vercel
+**Version 0.2** — Finitions de la homepage, passage en one-page, ajout de la page IRL (développement futurs commits)
+
+**prévu : Version 0.3** — Fin de la homepage, travail sur la workpage

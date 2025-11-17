@@ -43,18 +43,29 @@ span {
     color: var(--monochrome);;
     display: flex;
     border-radius: 999px;
-    padding: 10px;
     background-color: transparent;
     border: none;
     transition: 0.2s ease-out;
 }
 
-.navbar a:hover, .icon:hover {
+.navbar a:hover {
     background: rgba(255, 255, 255, 0.24);
     border-radius: 99px;
     box-shadow: 0 0px 20px rgba(70, 70, 70, 0.1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transform: scale(1.05);
+}
+
+.navbar a.active[data-section="home"] .icon {
+    color: var(--navicons-home);
+}
+
+.navbar a.active[data-section="works"] .icon {
+    color: var(--navicons-work);
+}
+
+.navbar a.active[data-section="skills"] .icon {
+    color: var(--navicons-skills);
 }
 

@@ -1,4 +1,4 @@
-export default function Work(){
+export default function Works(){
     return(
         <div className="Workpage">
             Work
