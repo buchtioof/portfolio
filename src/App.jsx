@@ -16,11 +16,11 @@ export default function App() {
           <section id="home">
             <Home />
           </section>
-          <section id="skills">
-            <Skills />
-          </section>
           <section id="works">
             <Works />
+          </section>
+          <section id="skills">
+            <Skills />
           </section>
           <Navbar />
         </main>

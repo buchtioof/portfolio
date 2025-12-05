@@ -44,13 +44,13 @@ export default function Navbar() {
         <HouseIcon className="icon" size={24} weight="bold" />
         <span>Accueil</span>
       </a>
-      <a href="#skills" className={active === "skills" ? "active" : ""} data-section="skills" onClick={(e) => handleClick(e, "skills")}>
-        <BrainIcon className="icon" size={24} weight="bold" />
-        <span>Compétences</span>
-      </a>
       <a href="#works" className={active === "works" ? "active" : ""} data-section="works" onClick={(e) => handleClick(e, "works")}>
         <PaletteIcon className="icon" size={24} weight="bold" />
         <span>Projets</span>
+      </a>
+      <a href="#skills" className={active === "skills" ? "active" : ""} data-section="skills" onClick={(e) => handleClick(e, "skills")}>
+        <BrainIcon className="icon" size={24} weight="bold" />
+        <span>Compétences</span>
       </a>
       {/* <SwitchTheme/> */}
     </div>
