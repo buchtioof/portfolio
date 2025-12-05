@@ -4,16 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "gsap": "^3.13.0",
     "ogl": "^1.0.11",
-    "rc-tooltip": "^6.4.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-draggable": "^4.5.0",

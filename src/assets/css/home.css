@@ -37,14 +37,6 @@ h1, p {
     animation: slideFadeUp 700ms cubic-bezier(.22,.9,.32,1) forwards;
 }
 
-.anim_p {
-    /* apparition depuis le bas, terminaison un peu vers le haut */
-    transform: translateY(24px);
-    opacity: 0;
-    animation: slideFadeUp 700ms cubic-bezier(.22,.9,.32,1) forwards;
-    animation-delay: 300ms;
-}
-
 @keyframes slideFadeUp {
     from {
         transform: translateY(24px);
@@ -69,6 +61,26 @@ h1, p {
 .globe_emoji {
 	width: 42px;
 	height: 42px;
+}
+
+.paragraph {
+    width: fit-content;
+    height: auto;
+}
+
+.p_link {
+    color: var(--monochrome);;
+    font-family: "Instrument Serif";
+    font-style: italic;
+    font-weight: 400;
+    text-align: left;
+    font-size: 28px;
+    text-decoration: none;
+    transition: all .5s;
+}
+
+.p_link:hover {
+    text-decoration: underline;
 }
 
 .button {

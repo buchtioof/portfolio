@@ -1,0 +1,55 @@
+{
+  "hash": "e1f25bfd",
+  "configHash": "ec1ffc20",
+  "lockfileHash": "9b52a05a",
+  "browserHash": "73308843",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "8d171056",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "106194ec",
+      "needsInterop": true
+    },
+    "@phosphor-icons/react": {
+      "src": "../../node_modules/@phosphor-icons/react/dist/index.es.js",
+      "file": "@phosphor-icons_react.js",
+      "fileHash": "1a1ad94d",
+      "needsInterop": false
+    },
+    "react-type-animation": {
+      "src": "../../node_modules/react-type-animation/dist/esm/index.es.js",
+      "file": "react-type-animation.js",
+      "fileHash": "5b35a333",
+      "needsInterop": false
+    },
+    "react-draggable": {
+      "src": "../../node_modules/react-draggable/build/cjs/cjs.js",
+      "file": "react-draggable.js",
+      "fileHash": "fce994be",
+      "needsInterop": true
+    },
+    "ogl": {
+      "src": "../../node_modules/ogl/src/index.js",
+      "file": "ogl.js",
+      "fileHash": "8a04c4c9",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-KP7BIHBJ": {
+      "file": "chunk-KP7BIHBJ.js"
+    },
+    "chunk-ULSRCYB6": {
+      "file": "chunk-ULSRCYB6.js"
+    },
+    "chunk-G3PMV62Z": {
+      "file": "chunk-G3PMV62Z.js"
+    }
+  }
+}

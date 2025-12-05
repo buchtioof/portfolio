@@ -1,4 +1,5 @@
 import { GithubLogoIcon, DribbbleLogoIcon, LinkedinLogoIcon, AtIcon } from "@phosphor-icons/react"
+import { TypeAnimation } from 'react-type-animation';
 import Draggable from "react-draggable";
 import '../assets/css/home.css';
 
@@ -11,7 +12,14 @@ export default function Home() {
                     <h1>salut monde !</h1>
                     <img className="globe_emoji" src="./img/icons/globe.gif" alt="Earth globe in 3D rotating on itself" />
                 </div>
-                <p className="anim_p">moi c'est ramzi, actuellement étudiant en informatique au <br></br>Conservatoire National des Arts et Métiers à Paris.</p>
+                <TypeAnimation
+                    sequence={[
+                        "moi c'est ramzi, actuellement étudiant en informatique au\n Conservatoire National des Arts et Métiers à Paris.",
+                    ]}
+                    wrapper="p"
+                    speed={45}
+                    style={{ whiteSpace: 'pre-line' }}
+                />
             </div>
             <div className="links">
                 <a

@@ -34,7 +34,7 @@
     transition: 0.2s ease-out;
 }
 
-.titlesbtn {
+span {
     margin-left: 8px;
     font-size: 16px;
 }
