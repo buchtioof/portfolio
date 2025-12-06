@@ -1,39 +1,66 @@
 import '../assets/css/work.css';
 
 export default function Works(){
-    // Liste de vos projets
-    const projectsData = [
+    // Exemple de données pour générer tes cartes dynamiquement
+    const projects = [
         {
             id: 1,
-            tags: ["design"],
-            image: "/img/works/dribbble.png",
-            title: "dribbble",
-            description: "Fourre tout de mes designs réalisés sur Figma et autres outils de design."
+            title: "Portfolio",
+            description: "Ce même site que vous êtes en train de visiter, fait avec React.",
+            tags: [
+                { name: "React", color: "#FFADAD" },
+                { name: "HTML/CSS", color: "#FFD6A5" }
+            ]
         },
         {
             id: 2,
-            title: "Projet 2",
-            description: "Description du projet 2. Une autre réalisation intéressante."
+            title: "dribbble",
+            description: "Ce même site que vous êtes en train de visiter, fait avec React.",
+            tags: [
+                { name: "Figma", color: "#FFADAD" },
+                { name: "Suite Adobe", color: "#FFD6A5" }
+            ]
         },
         {
             id: 3,
-            title: "Portfolio",
-            description: "Ce site web, réalisé avec React et Vite."
-        }
+            title: "affiches",
+            description: "la j'ai pas d'inspi pour le placeholder",
+            tags: [
+                { name: "Figma", color: "#FFADAD" },
+                { name: "Suite Adobe", color: "#FFD6A5" }
+            ]
+        },
+        // Tu pourras ajouter d'autres projets ici
     ];
 
     return(
         <div className="Workpage">
             <h1>Travaux</h1>
+            <p>Voici plusieurs projets sur lesquels j'ai pu travailler personnellement et en école (puis en entreprise un de ces quatres)</p>
             <div className="cards-container">
-                {projectsData.map((project) => (
+                {projects.map((project) => (
                     <div className="card" key={project.id}>
-                        <span>{project.tags}</span>
+                        <div className="card-image-placeholder">
+                            <span>Image du projet</span>
+                        </div>
+                        <div className="tags-container">
+                            {project.tags.map((tag, index) => (
+                                <span 
+                                    key={index} 
+                                    className="tag-pill" 
+                                    style={{ backgroundColor: tag.color }}
+                                >
+                                    {tag.name}
+                                </span>
+                            ))}
+                        </div>
                         <h2>{project.title}</h2>
                         <p>{project.description}</p>
-                        {/* Vous pourrez ajouter des boutons ou liens ici plus tard */}
                     </div>
                 ))}
+            </div>
+            <div className="card btn_more">
+                <h2>Voir tous mes projets</h2>
             </div>
         </div>
     )

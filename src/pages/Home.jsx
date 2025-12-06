@@ -5,7 +5,7 @@ import '../assets/css/home.css';
 
 export default function Home() {
     return (
-        <div className="container">
+        <div className="Homepage">
             <img src="../public/img/logo.webp" alt="Logo du portfolio" />
             <div className="hero">
                 <div className="hero_head">
