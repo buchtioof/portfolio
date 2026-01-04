@@ -42,15 +42,15 @@ export default function Navbar() {
     <div className="navbar backdrop-blur">
       <a href="#home" className={active === "home" ? "active" : ""} data-section="home" onClick={(e) => handleClick(e, "home")}>
         <HouseIcon className="icon" size={24} weight="bold" />
-        <span className="btn_nav">Accueil</span>
+        <span className="btn_nav">accueil</span>
       </a>
       <a href="#works" className={active === "works" ? "active" : ""} data-section="works" onClick={(e) => handleClick(e, "works")}>
         <PaletteIcon className="icon" size={24} weight="bold" />
-        <span className="btn_nav">Projets</span>
+        <span className="btn_nav">travaux</span>
       </a>
       <a href="#skills" className={active === "skills" ? "active" : ""} data-section="skills" onClick={(e) => handleClick(e, "skills")}>
         <BrainIcon className="icon" size={24} weight="bold" />
-        <span className="btn_nav">Compétences</span>
+        <span className="btn_nav">moi</span>
       </a>
       {/* <SwitchTheme/> */}
     </div>

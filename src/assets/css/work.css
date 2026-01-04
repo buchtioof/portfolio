@@ -1,6 +1,5 @@
 .Workpage {
-    padding: 40px;
-    width: 70%;
+    width: 50%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -17,13 +16,8 @@
 }
 
 .card {
-    border: 4px solid #aeaeae40;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 100%; 
-    padding: 32px;
     transition: transform 0.3s ease;
-    background-color: rgba(255, 255, 255, 0.02);
 }
 
 .card:hover {
@@ -64,4 +58,76 @@
     color: white; /* Texte blanc par défaut */
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     /* La couleur de fond est gérée dynamiquement dans le JSX */
+}
+
+/* --- Animation d'apparition au scroll --- */
+/* État de départ : invisible et légèrement décalé vers le bas */
+.card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* On garde vos styles existants ici (border, width, etc.) */
+}
+
+/* État final : visible (ajouté automatiquement par le JS) */
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Styles des éléments internes (Tags et Images) --- */
+.card-image-placeholder {
+    width: 100%;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tag-pill {
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff; /* Texte blanc par défaut */
+    /* La couleur de fond sera définie dynamiquement */
+}
+
+/* --- Style du bouton "Voir tous les projets" --- */
+.btn_more {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centre le bouton */
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.btn_more a {
+    text-decoration: none;
+    color: inherit;
+    padding: 12px 30px;
+    border: 1px solid var(--monochrome);
+    border-radius: 50px;
+    background: transparent;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn_more a:hover {
+    background: var(--monochrome);
+    color: #000; /* Texte noir au survol pour le contraste */
+    transform: translateY(-3px); /* Petit effet de levée */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }

@@ -1,48 +1,65 @@
+import { useEffect } from 'react';
 import '../assets/css/work.css';
 
-export default function Works(){
-    // Exemple de données pour générer tes cartes dynamiquement
+export default function Works() {
+    
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // La carte entre dans l'écran : elle apparaît
+                    entry.target.classList.add('visible');
+                } else {
+                    // La carte sort de l'écran : elle disparaît
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 }); // Se déclenche dès que 10% de la carte est visible/invisible
+
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => observer.observe(card));
+
+        return () => cards.forEach(card => observer.unobserve(card));
+    }, []);
+
+    // 2. Vos données de projets (plus facile à modifier ici)
     const projects = [
         {
             id: 1,
-            title: "Portfolio",
-            description: "Ce même site que vous êtes en train de visiter, fait avec React.",
+            title: "Projet 1",
+            description: "Description du projet 1.",
             tags: [
-                { name: "React", color: "#FFADAD" },
-                { name: "HTML/CSS", color: "#FFD6A5" }
+                { name: "React", color: "#61DAFB" },
+                { name: "CSS", color: "#264de4" }
             ]
         },
         {
             id: 2,
-            title: "dribbble",
-            description: "Ce même site que vous êtes en train de visiter, fait avec React.",
+            title: "Projet 2",
+            description: "Une autre réalisation intéressante.",
             tags: [
-                { name: "Figma", color: "#FFADAD" },
-                { name: "Suite Adobe", color: "#FFD6A5" }
+                { name: "Node.js", color: "#68A063" },
+                { name: "API", color: "#E0234E" }
             ]
         },
-        {
-            id: 3,
-            title: "affiches",
-            description: "la j'ai pas d'inspi pour le placeholder",
-            tags: [
-                { name: "Figma", color: "#FFADAD" },
-                { name: "Suite Adobe", color: "#FFD6A5" }
-            ]
-        },
-        // Tu pourras ajouter d'autres projets ici
+        // Ajoutez d'autres projets ici...
     ];
 
-    return(
+    return (
         <div className="Workpage">
-            <h1>Travaux</h1>
-            <p>Voici plusieurs projets sur lesquels j'ai pu travailler personnellement et en école (puis en entreprise un de ces quatres)</p>
+            <h2>travaux</h2>
+            
             <div className="cards-container">
                 {projects.map((project) => (
                     <div className="card" key={project.id}>
                         <div className="card-image-placeholder">
                             <span>Image du projet</span>
                         </div>
+
+                        <h3>{project.title}</h3>
+                        <p>{project.description}</p>
+
+                        {/* Tags en forme de pills */}
                         <div className="tags-container">
                             {project.tags.map((tag, index) => (
                                 <span 
@@ -54,13 +71,13 @@ export default function Works(){
                                 </span>
                             ))}
                         </div>
-                        <h2>{project.title}</h2>
-                        <p>{project.description}</p>
                     </div>
                 ))}
             </div>
-            <div className="card btn_more">
-                <h2>Voir tous mes projets</h2>
+
+            {/* Le bouton "Voir plus" */}
+            <div className="btn_more">
+                <a href="/tous-les-projets">Voir tous les projets</a>
             </div>
         </div>
     )

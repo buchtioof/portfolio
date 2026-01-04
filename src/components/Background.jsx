@@ -22,7 +22,7 @@ export default function Background() {
           speed={1.0}
         />
         <Squares 
-            speed={0.05} 
+            speed={0.1} 
             squareSize={80}
             direction='down' // up, down, left, right, diagonal
             borderColor='#1d1d2b6a'

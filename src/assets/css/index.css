@@ -53,18 +53,24 @@ body {
 /* Content styling */
 
 h1 {
-    font-family: "Instrument Serif";
-    font-style: bold;
-    font-weight: 200;
-    font-size: 6rem;
+    font-family: "Sora";
+    font-weight: 400;
+    font-optical-sizing: -2%;
+    font-size: 2rem;
     letter-spacing: 0;
 }
 
 h2 {
+    font-family: "Sora";
+    font-weight: 200;
+    font-size: 2rem;
+}
+
+h3 {
     font-family: "Instrument Serif";
     font-style: normal;
-    font-weight: 400;
-    font-size: 2rem;
+    font-weight: 200;
+    font-size: 1rem;
 }
 
 p {
