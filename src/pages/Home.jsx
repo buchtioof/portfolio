@@ -6,7 +6,7 @@ export default function Home() {
     return (
         <div className="Homepage">
             <div className="hero">
-                <img className="logo_hero" src="../public/img/icons/logo.svg" alt="Logo du portfolio" />
+                <img className="logo_hero" src="/img/assets/logo/main.svg" alt="Logo du portfolio" />
                 <div className="hero_right">
                     <h1 className="p_hero">salut, moi c'est ramzi idir ! étudiant en informatique au Conservatoire National des Arts et Métiers à Paris. je code principalement et design !</h1>
                     <div className="links">
