@@ -1,0 +1,9 @@
+.logo_hero {
+    width: 92px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.logo_hero:hover {
+    transform: scale(1.1) rotate(-5deg);
+}

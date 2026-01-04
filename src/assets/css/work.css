@@ -8,6 +8,7 @@
 
 .cards-container {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 64px; /* Espace entre les cartes */

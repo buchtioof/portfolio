@@ -1,12 +1,13 @@
 import { GithubLogoIcon, DribbbleLogoIcon, LinkedinLogoIcon, AtIcon } from "@phosphor-icons/react"
 import Draggable from "react-draggable";
+import Buddy from "../components/elements/Buddy"
 import '../assets/css/home.css';
 
 export default function Home() {
     return (
         <div className="Homepage">
             <div className="hero">
-                <img className="logo_hero" src="/img/assets/logo/main.svg" alt="Logo du portfolio" />
+                <Buddy></Buddy>
                 <div className="hero_right">
                     <h1 className="p_hero">salut, moi c'est ramzi idir ! étudiant en informatique au Conservatoire National des Arts et Métiers à Paris. je code principalement et design !</h1>
                     <div className="links">

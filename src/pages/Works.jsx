@@ -26,34 +26,45 @@ export default function Works() {
     const projects = [
         {
             id: 1,
-            title: "Projet 1",
-            description: "Description du projet 1.",
+            title: "grabber",
+            description: "Fetch toutes les informations d'un PC sous linux",
+            image: "/img/assets/",
             tags: [
-                { name: "React", color: "#61DAFB" },
-                { name: "CSS", color: "#264de4" }
+                { name: "Shell", color: "#61DAFB" },
+                { name: "Linux", color: "#264de4" }
             ]
         },
         {
             id: 2,
-            title: "Projet 2",
-            description: "Une autre réalisation intéressante.",
+            title: "DA Personnelle",
+            description: "Travail sur ma charte graphique personnelle",
+            image: "image",
             tags: [
-                { name: "Node.js", color: "#68A063" },
-                { name: "API", color: "#E0234E" }
+                { name: "Figma", color: "#68A063" },
+                { name: "Illustrator", color: "#E0234E" }
             ]
         },
-        // Ajoutez d'autres projets ici...
+        {
+            id: 3,
+            title: "DA Personnelle",
+            description: "Travail sur ma charte graphique personnelle",
+            image: "image",
+            tags: [
+                { name: "Figma", color: "#68A063" },
+                { name: "Illustrator", color: "#E0234E" }
+            ]
+        },
     ];
 
     return (
         <div className="Workpage">
-            <h2>travaux</h2>
+            <h2>projets personnels</h2>
             
             <div className="cards-container">
                 {projects.map((project) => (
                     <div className="card" key={project.id}>
                         <div className="card-image-placeholder">
-                            <span>Image du projet</span>
+                            <span>{project.image}</span>
                         </div>
 
                         <h3>{project.title}</h3>
