@@ -1,28 +1,37 @@
-import { useEffect } from 'react';
+import React, { useContext } from 'react';
+import { ScrollMenu, VisibilityContext } from 'react-horizontal-scrolling-menu';
+import 'react-horizontal-scrolling-menu/dist/styles.css';
+import { CaretLeft, CaretRight } from '@phosphor-icons/react';
+
 import '../assets/css/work.css';
+
+// --- Composants pour les flèches de navigation ---
+
+function LeftArrow() {
+  const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
+
+  return (
+    <div className={`arrow-btn left ${isFirstItemVisible ? 'disabled' : ''}`} onClick={() => scrollPrev()}>
+      <CaretLeft size={32} />
+    </div>
+  );
+}
+
+function RightArrow() {
+  const { isLastItemVisible, scrollNext } = useContext(VisibilityContext);
+
+  return (
+    <div className={`arrow-btn right ${isLastItemVisible ? 'disabled' : ''}`} onClick={() => scrollNext()}>
+      <CaretRight size={32} />
+    </div>
+  );
+}
+
+// --- Composant principal ---
 
 export default function Works() {
     
-    useEffect(() => {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    // La carte entre dans l'écran : elle apparaît
-                    entry.target.classList.add('visible');
-                } else {
-                    // La carte sort de l'écran : elle disparaît
-                    entry.target.classList.remove('visible');
-                }
-            });
-        }, { threshold: 0.1 }); // Se déclenche dès que 10% de la carte est visible/invisible
-
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => observer.observe(card));
-
-        return () => cards.forEach(card => observer.unobserve(card));
-    }, []);
-
-    // 2. Vos données de projets (plus facile à modifier ici)
+    // Tes données de projets
     const projects = [
         {
             id: 1,
@@ -46,12 +55,20 @@ export default function Works() {
         },
         {
             id: 3,
-            title: "DA Personnelle",
-            description: "Travail sur ma charte graphique personnelle",
+            title: "Projet 3",
+            description: "Description du projet 3",
             image: "image",
             tags: [
-                { name: "Figma", color: "#68A063" },
-                { name: "Illustrator", color: "#E0234E" }
+                { name: "React", color: "#61DAFB" }
+            ]
+        },
+         {
+            id: 4,
+            title: "Projet 4",
+            description: "Description du projet 4",
+            image: "image",
+            tags: [
+                { name: "Node", color: "#68A063" }
             ]
         },
     ];
@@ -60,33 +77,39 @@ export default function Works() {
         <div className="Workpage">
             <h2>projets personnels</h2>
             
-            <div className="cards-container">
-                {projects.map((project) => (
-                    <div className="card" key={project.id}>
-                        <div className="card-image-placeholder">
-                            <span>{project.image}</span>
-                        </div>
+            {/* Le wrapper pour le menu horizontal */}
+            <div className="scroll-menu-wrapper">
+                <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+                    {projects.map((project) => (
+                        <div 
+                            className="card" 
+                            key={project.id}
+                            itemId={project.id} // Important pour la librairie
+                            title={project.title}
+                        >
+                            <div className="card-image-placeholder">
+                                <span>{project.image}</span>
+                            </div>
 
-                        <h3>{project.title}</h3>
-                        <p>{project.description}</p>
+                            <h3>{project.title}</h3>
+                            <p>{project.description}</p>
 
-                        {/* Tags en forme de pills */}
-                        <div className="tags-container">
-                            {project.tags.map((tag, index) => (
-                                <span 
-                                    key={index} 
-                                    className="tag-pill" 
-                                    style={{ backgroundColor: tag.color }}
-                                >
-                                    {tag.name}
-                                </span>
-                            ))}
+                            <div className="tags-container">
+                                {project.tags.map((tag, index) => (
+                                    <span 
+                                        key={index} 
+                                        className="tag-pill" 
+                                        style={{ backgroundColor: tag.color }}
+                                    >
+                                        {tag.name}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </ScrollMenu>
             </div>
 
-            {/* Le bouton "Voir plus" */}
             <div className="btn_more">
                 <a href="/tous-les-projets">Voir tous les projets</a>
             </div>

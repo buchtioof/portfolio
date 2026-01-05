@@ -1,23 +1,61 @@
+/* src/assets/css/work.css */
+
 .Workpage {
-    width: 50%;
+    width: 50%;         /* Le contenu principal prend 50% de la largeur */
+    margin: 0 auto;     /* On centre cette colonne */
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
+    padding: 0;
 }
 
-.cards-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 64px; /* Espace entre les cartes */
-    width: 100%;
+/* --- Wrapper global du menu (Le Breakout) --- */
+.scroll-menu-wrapper {
+    /* Rappel du calcul : 75% d'écran total requis pour remplir la droite.
+       75% / 50% (parent) = 1.5 => 150% */
+    width: 150%; 
     margin-top: 48px;
+    max-width: 100vw; 
 }
 
+/* --- REORGANISATION POUR METTRE LES FLÈCHES EN DESSOUS --- */
+
+/* 1. On transforme le wrapper de la librairie en Flexbox "wrap" */
+.react-horizontal-scrolling-menu--wrapper {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center;
+    justify-content: flex-start; /* Aligne les flèches à gauche (sous la 1ère carte) */
+    gap: 16px; /* Espace vertical et horizontal */
+}
+
+/* 2. Le conteneur de cartes prend toute la largeur et passe en PREMIER */
+.react-horizontal-scrolling-menu--scroll-container {
+    order: 1;
+    flex-basis: 100%; /* Force le passage à la ligne des éléments suivants */
+    width: 100%;
+    
+    /* Cache les scrollbars */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 3. Les flèches passent en DEUXIÈME (en dessous) */
+.react-horizontal-scrolling-menu--arrow-left,
+.react-horizontal-scrolling-menu--arrow-right {
+    order: 2;
+    margin-top: 8px; /* Petit ajustement supplémentaire si nécessaire */
+}
+
+/* --- Style de la Carte --- */
 .card {
-    width: 100%; 
+    width: 300px;
+    margin: 0 16px 0 0; /* Marge à droite seulement */
+    user-select: none;
     transition: transform 0.3s ease;
 }
 
@@ -25,58 +63,36 @@
     transform: translateY(-5px);
 }
 
-/* --- Nouveaux ajouts pour les images et tags --- */
-
-/* Placeholder d'image */
-.card-image-placeholder {
-    width: 100%;
-    height: 150px; /* Hauteur fixe pour l'uniformité */
-    background-color: rgba(255, 255, 255, 0.1); /* Fond gris/transparent */
-    border-radius: 8px;
-    margin-bottom: 15px;
+/* --- Flèches de navigation (Design) --- */
+.arrow-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.9rem;
+    cursor: pointer;
+    width: 48px;  /* Un peu plus grand pour faciliter le clic */
+    height: 48px;
+    border-radius: 50%; /* Cercle parfait */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure subtile */
+    background: transparent;
+    transition: all 0.3s ease;
+    color: white;
 }
 
-/* Conteneur des tags */
-.tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px; /* Espace entre la description et les tags */
+.arrow-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    color: black; /* Contraste au survol */
+    border-color: white;
+    transform: scale(1.05);
 }
 
-/* Style des tags (Pills) */
-.tag-pill {
-    padding: 5px 12px;
-    border-radius: 50px; /* Forme de pilule */
-    font-family: "Sora";
-    font-weight: 500;
-    font-size: .8rem;
-    color: white; /* Texte blanc par défaut */
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    /* La couleur de fond est gérée dynamiquement dans le JSX */
+.arrow-btn.disabled {
+    opacity: 0.2;
+    cursor: default;
+    pointer-events: none;
+    border-color: rgba(255, 255, 255, 0.05);
 }
 
-/* --- Animation d'apparition au scroll --- */
-/* État de départ : invisible et légèrement décalé vers le bas */
-.card {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    /* On garde vos styles existants ici (border, width, etc.) */
-}
-
-/* État final : visible (ajouté automatiquement par le JS) */
-.card.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* --- Styles des éléments internes (Tags et Images) --- */
+/* --- Image Placeholder --- */
 .card-image-placeholder {
     width: 100%;
     height: 150px;
@@ -90,6 +106,7 @@
     font-size: 0.9rem;
 }
 
+/* --- Tags --- */
 .tags-container {
     display: flex;
     flex-wrap: wrap;
@@ -100,18 +117,19 @@
 .tag-pill {
     padding: 4px 12px;
     border-radius: 50px;
+    font-family: "Sora", sans-serif;
     font-size: 0.75rem;
     font-weight: 600;
-    color: #fff; /* Texte blanc par défaut */
-    /* La couleur de fond sera définie dynamiquement */
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* --- Style du bouton "Voir tous les projets" --- */
+/* --- Bouton "Voir plus" --- */
 .btn_more {
     width: 100%;
     display: flex;
-    justify-content: center; /* Centre le bouton */
-    margin-top: 40px;
+    justify-content: center; 
+    margin-top: 40px; /* Espace plus grand pour séparer des flèches */
     margin-bottom: 20px;
 }
 
@@ -119,7 +137,7 @@
     text-decoration: none;
     color: inherit;
     padding: 12px 30px;
-    border: 1px solid var(--monochrome);
+    border: 1px solid #ccc;
     border-radius: 50px;
     background: transparent;
     transition: all 0.3s ease;
@@ -127,8 +145,8 @@
 }
 
 .btn_more a:hover {
-    background: var(--monochrome);
-    color: #000; /* Texte noir au survol pour le contraste */
-    transform: translateY(-3px); /* Petit effet de levée */
+    background: #fff;
+    color: #000;
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
