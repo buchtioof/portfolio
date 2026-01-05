@@ -13,8 +13,16 @@ export default function App() {
         <Status />
         <Background />
         <main className="AppMain">
-          <h1>Work in progress, see y'all asap!</h1>
-          <img src="https://media1.tenor.com/m/lSBXYvTZzP8AAAAC/man-standing.gif" alt="man standing" />
+          <section id="home">
+            <Home />
+          </section>
+          <section id="works">
+            <Works />
+          </section>
+          <section id="skills">
+            <Skills />
+          </section>
+          <Navbar />
         </main>
       </div>
   );
