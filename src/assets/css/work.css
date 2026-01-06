@@ -1,8 +1,8 @@
 /* src/assets/css/work.css */
 
 .Workpage {
-    width: 50%;         /* Le contenu principal prend 50% de la largeur */
-    margin: 0 auto;     /* On centre cette colonne */
+    width: 50%;
+    margin: 0 auto;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

@@ -7,7 +7,10 @@ export default function RandomLogo() {
     const mainLogo = "/img/assets/logo/main.svg";
     const variants = [
         "/img/assets/logo/var1.svg",
-        "/img/assets/logo/var2.svg",    
+        "/img/assets/logo/var2.svg",
+        "/img/assets/logo/var3.svg",  
+        "/img/assets/logo/var4.svg", 
+        "/img/assets/logo/var5.svg",
     ];
 
     // 2. L'état initial est toujours l'image principale

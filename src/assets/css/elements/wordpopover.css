@@ -1,0 +1,142 @@
+/* wordpopover.css */
+
+/* --- 1. LE TEXTE DÉCLENCHEUR --- */
+.popover-trigger {
+  cursor: pointer;
+  background: var(--cursor-blur); 
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  font-weight: 600;
+  display: inline-block;
+  
+  /* CHANGEMENT ICI : On met une bordure transparente au lieu de 'none' */
+  /* Cela permet au CSS de calculer la transition vers la couleur */
+  border-bottom: 2px solid transparent;
+  
+  /* On transitionne la couleur de la bordure */
+  transition: border-color 0.3s ease-in-out, opacity 0.3s ease;
+}
+
+.popover-trigger:hover {
+  /* Au survol, on change juste la couleur */
+  border-color: var(--monochrome);
+  opacity: 0.8;
+}
+
+/* --- 2. LA POPUP --- */
+.popover-card {
+  background-color: var(--background);
+  color: var(--monochrome);
+  font-family: 'Sora', sans-serif;
+  width: 220px;
+  padding: 16px;
+  border-radius: 12px;
+  z-index: 99999 !important;
+  
+  /* Skeuomorphisme */
+  border: 1px solid rgba(128, 128, 128, 0.1); 
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 1px 0 0 rgba(255, 255, 255, 0.05);
+
+  /* Animation d'ENTRÉE par défaut */
+  animation: popoverFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* NOUVEAU : Classe ajoutée par React quand on quitte la zone */
+.popover-card.closing {
+  animation: popoverFadeOut 0.3s ease-in forwards;
+  pointer-events: none; /* Empêche de cliquer pendant qu'elle disparaît */
+}
+
+/* --- 3. LES ANIMATIONS --- */
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95); /* Léger zoom in */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes popoverFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98); /* Disparait vers le bas légèrement */
+  }
+}
+
+/* --- LE RESTE DU CSS (Image, Info, etc.) ne change pas --- */
+.popover-image-wrapper {
+  width: 100%;
+  height: 110px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.1); 
+  border: 1px solid rgba(128, 128, 128, 0.1);
+}
+
+.popover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.popover-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--aurora-color-2), var(--aurora-color-3));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--background);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.popover-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.popover-title {
+  margin: 0;
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  font-weight: normal;
+  color: var(--monochrome);
+  letter-spacing: 0.5px;
+}
+
+.popover-location-row {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: var(--monochrome);
+  opacity: 0.7;
+}
+
+.popover-icon {
+  margin-right: 6px;
+  font-size: 14px;
+}
+
+.popover-location-text {
+  font-family: 'Sora', sans-serif;
+  font-weight: 300;
+}
