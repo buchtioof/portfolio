@@ -1,0 +1,439 @@
+/* =========================================
+   1. GRILLE PRINCIPALE (LAYOUT)
+   ========================================= */
+.bento-about-container {
+    display: grid;
+    /* 4 colonnes égales */
+    grid-template-columns: repeat(4, 1fr);
+    /* Hauteur fixe pour la régularité */
+    grid-auto-rows: 180px; 
+    gap: 20px;
+    
+    /* Largeur et marges */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* =========================================
+   2. STYLE DES TUILES (MATCH EXACT .card)
+   ========================================= */
+.bento-tile {
+    /* --- Style copié de .card (carousel.css) --- */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px; /* Identique à tes cartes */
+    box-sizing: border-box;
+    
+    /* --- Comportement --- */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    
+    /* --- Transitions --- */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Effet Hover identique au carousel */
+.bento-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    z-index: 2;
+}
+
+/* --- GESTION DES TAILLES (SPANS) --- */
+.bento-tile.large { grid-column: span 2; grid-row: span 2; }
+.bento-tile.wide { grid-column: span 2; }
+.bento-tile.square, .bento-tile.small { grid-column: span 1; }
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .bento-about-container { grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .bento-tile.large, .bento-tile.wide, .bento-tile.square, .bento-tile.small {
+        grid-column: span 1; grid-row: span 1; min-height: 200px;
+    }
+}
+
+/* =========================================
+   3. CONTENU INTERNE COMMUN
+   ========================================= */
+.bento-inner {
+    width: 100%;
+    height: 100%;
+    padding: 20px; /* Identique au padding .card */
+    box-sizing: border-box;
+    display: flex;
+    color: inherit;
+    font-family: "Sora", sans-serif;
+}
+
+/* =========================================
+   4. WIDGET : BIO
+   ========================================= */
+.bento-inner.bio {
+    flex-direction: column;
+    justify-content: space-between;
+    /* Pas de fond spécifique, on garde celui de la tuile */
+}
+
+.bio-text h3 {
+    font-size: 1.3rem; /* Identique à .card h3 */
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    color: #fff;
+}
+
+.bio-text p {
+    color: rgba(255, 255, 255, 0.7); /* Identique à .card p */
+    line-height: 1.5;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.bio-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255,255,255,0.1);
+    margin-top: 20px;
+}
+
+/* =========================================
+   5. WIDGET : MAP
+   ========================================= */
+.bento-inner.map {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    background-color: #161616;
+}
+
+.map-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/1000px-World_map_blank_without_borders.svg.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3; /* Très subtil pour rester dans le thème sombre */
+    filter: invert(1);
+}
+
+.map-pin {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+}
+
+/* =========================================
+   6. WIDGET : STACK TECHNIQUE
+   ========================================= */
+.bento-inner.stack {
+    flex-direction: column;
+}
+
+.bento-inner.stack h3 {
+    margin: 0 0 15px 0;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+.stack-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Identique à .tags-container */
+    margin-top: auto;
+}
+
+/* Style copié de .tag-pill (carousel.css) */
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    
+    padding: 6px 14px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.05); /* Fond léger */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Bordure subtile */
+    
+    font-family: "Sora", sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   7. WIDGET : SOCIAL SLIDER
+   ========================================= */
+.bento-inner.social-slider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    /* On garde le fond transparent de la carte */
+}
+
+/* Conteneur qui s'anime */
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-content span {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: white;
+}
+
+.social-icon {
+    color: white; /* Les icones restent blanches pour la cohérence */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animation Keyframes */
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(10px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Dots indicateurs */
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* =========================================
+   8. WIDGET : SPOTIFY
+   ========================================= */
+.bento-inner.music {
+    background: #fe2658;
+    color: #ffffff;
+    align-items: center;
+    gap: 15px;
+}
+
+.music-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; 
+}
+
+.music-info {
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.music-info span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 4px;
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    font-weight: 700;
+    font-size: 1.1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.equalizer {
+    display: flex;
+    gap: 3px;
+    height: 20px;
+    align-items: flex-end;
+}
+
+.bar {
+    width: 5px;
+    background: #ffffff;
+    border-radius: 2px;
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.bar:nth-child(1) { animation-duration: 0.8s; height: 40%; }
+.bar:nth-child(2) { animation-duration: 1.1s; animation-delay: 0.1s; height: 80%; }
+.bar:nth-child(3) { animation-duration: 1.3s; animation-delay: 0.2s; height: 50%; }
+
+@keyframes bounce {
+    0%, 100% { height: 20%; }
+    50% { height: 100%; }
+}
+
+/* =========================================
+   9. WIDGET : SOCIAL SLIDER (Nouveau)
+   ========================================= */
+
+.bento-inner.social-slider {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: #161616;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+.bento-inner.social-slider:hover {
+    background: var(--hover-color, #222);
+}
+
+/* Conteneur du contenu qui s'anime */
+.slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Animation d'entrée */
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-content span {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* L'animation keyframe */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(10px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Les petits points en bas (Dots) */
+.slider-dots {
+    position: absolute;
+    bottom: 15px;
+    display: flex;
+    gap: 6px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+    transform: scale(1.2);
+}
+
+/* =========================================
+   10. WIDGET : MOVIE (LAST WATCH)
+   ========================================= */
+
+.bento-inner.movie {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    /* Pas de padding ici pour que l'image aille aux bords, 
+       on gérera l'espacement via .movie-content */
+    padding: 0; 
+}
+
+/* Dégradé pour rendre le texte lisible sur l'image */
+.movie-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 60%, transparent 100%);
+    z-index: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* Au survol, on assombrit un peu plus pour faire ressortir le texte */
+.bento-tile:hover .movie-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.movie-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Icone en haut, Texte en bas */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.movie-icon {
+    align-self: flex-end; /* Icone en haut à droite */
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.movie-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.movie-info span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.movie-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

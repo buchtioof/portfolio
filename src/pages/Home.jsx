@@ -22,7 +22,7 @@ export default function Home() {
                             />
                         </a>
                         <br></br>
-                        je code principalement et design !</h1>
+                        je suis un développeur et administrateur systemes amoureux de bons designs !</h1>
                     <div className="links">
                         <a className="button github" target="_blank" rel="noopener noreferrer" href="https://github.com/buchtioof" aria-label="Github">
                             <GithubLogoIcon size={24}

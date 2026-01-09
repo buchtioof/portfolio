@@ -5,7 +5,7 @@ import Status from './components/Status.jsx'
 import Background from './components/Background.jsx'
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
-import Skills from './pages/Skills.jsx'
+import About from './pages/About.jsx'
 import Works from './pages/Works.jsx'
 
 export default function App() {
@@ -21,8 +21,8 @@ export default function App() {
                     <section id="works">
                         <Works/>
                     </section>
-                    <section id="skills">
-                        <Skills/>
+                    <section id="about">
+                        <About/>
                     </section>
                     <Navbar/>
                 </main>

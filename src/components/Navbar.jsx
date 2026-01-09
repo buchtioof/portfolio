@@ -10,7 +10,7 @@ export default function Navbar() {
     const sections = [
       document.getElementById("home"),
       document.getElementById("skills"),
-      document.getElementById("works"),
+      document.getElementById("about"),
     ].filter(Boolean)
 
     if (!sections.length) return
@@ -48,7 +48,7 @@ export default function Navbar() {
         <PaletteIcon className="icon" size={24} weight="bold" />
         <span className="btn_nav">travaux</span>
       </a>
-      <a href="#skills" className={active === "skills" ? "active" : ""} data-section="skills" onClick={(e) => handleClick(e, "skills")}>
+      <a href="#about" className={active === "about" ? "active" : ""} data-section="about" onClick={(e) => handleClick(e, "about")}>
         <BrainIcon className="icon" size={24} weight="bold" />
         <span className="btn_nav">moi</span>
       </a>

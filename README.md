@@ -1,3 +1,5 @@
+![portfolio logo](./public/img/assets/projects/portfolio.png)
+
 # Portfolio perso
 
 ## 🌟 Présentation

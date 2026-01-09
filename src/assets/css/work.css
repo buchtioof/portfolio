@@ -1,146 +1,32 @@
-/* src/assets/css/work.css */
-
 .Workpage {
-    width: 50%;
-    margin: 0 auto;
-    box-sizing: border-box;
+    width: 50%; 
+    margin: 0 auto; 
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
+    padding-bottom: 50px;
 }
 
-/* --- Wrapper global du menu (Le Breakout) --- */
-.scroll-menu-wrapper {
-    /* Rappel du calcul : 75% d'écran total requis pour remplir la droite.
-       75% / 50% (parent) = 1.5 => 150% */
-    width: 150%; 
-    margin-top: 48px;
-    max-width: 100vw; 
+.buddy_worker {
+    width: 92px;
 }
 
-/* --- REORGANISATION POUR METTRE LES FLÈCHES EN DESSOUS --- */
-
-/* 1. On transforme le wrapper de la librairie en Flexbox "wrap" */
-.react-horizontal-scrolling-menu--wrapper {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    align-items: center;
-    justify-content: flex-start; /* Aligne les flèches à gauche (sous la 1ère carte) */
-    gap: 16px; /* Espace vertical et horizontal */
-}
-
-/* 2. Le conteneur de cartes prend toute la largeur et passe en PREMIER */
-.react-horizontal-scrolling-menu--scroll-container {
-    order: 1;
-    flex-basis: 100%; /* Force le passage à la ligne des éléments suivants */
-    width: 100%;
-    
-    /* Cache les scrollbars */
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-.react-horizontal-scrolling-menu--scroll-container::-webkit-scrollbar {
-    display: none;
-}
-
-/* 3. Les flèches passent en DEUXIÈME (en dessous) */
-.react-horizontal-scrolling-menu--arrow-left,
-.react-horizontal-scrolling-menu--arrow-right {
-    order: 2;
-    margin-top: 8px; /* Petit ajustement supplémentaire si nécessaire */
-}
-
-/* --- Style de la Carte --- */
-.card {
-    width: 300px;
-    margin: 0 16px 0 0; /* Marge à droite seulement */
-    user-select: none;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-/* --- Flèches de navigation (Design) --- */
-.arrow-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    width: 48px;  /* Un peu plus grand pour faciliter le clic */
-    height: 48px;
-    border-radius: 50%; /* Cercle parfait */
-    border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure subtile */
-    background: transparent;
-    transition: all 0.3s ease;
-    color: white;
-}
-
-.arrow-btn:hover {
-    background: rgba(255, 255, 255, 1);
-    color: black; /* Contraste au survol */
-    border-color: white;
-    transform: scale(1.05);
-}
-
-.arrow-btn.disabled {
-    opacity: 0.2;
-    cursor: default;
-    pointer-events: none;
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-/* --- Image Placeholder --- */
-.card-image-placeholder {
-    width: 100%;
-    height: 150px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.9rem;
-}
-
-/* --- Tags --- */
-.tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 15px;
-}
-
-.tag-pill {
-    padding: 4px 12px;
-    border-radius: 50px;
-    font-family: "Sora", sans-serif;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #fff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-/* --- Bouton "Voir plus" --- */
 .btn_more {
     width: 100%;
     display: flex;
-    justify-content: center; 
-    margin-top: 40px; /* Espace plus grand pour séparer des flèches */
-    margin-bottom: 20px;
+    justify-content: start;
+    margin-top: 60px;
 }
 
 .btn_more a {
     text-decoration: none;
     color: inherit;
     padding: 12px 30px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--monochrome);
     border-radius: 50px;
     background: transparent;
     transition: all 0.3s ease;
+    font-family: "Sora", sans-serif;
     font-weight: 500;
 }
 
@@ -148,5 +34,4 @@
     background: #fff;
     color: #000;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
