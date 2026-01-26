@@ -37,7 +37,7 @@ export default function Status() {
   return (
     <div className={"status" + (hidden ? " status-hidden" : "") } aria-hidden={hidden}>
       <span className="status-dot open"></span>
-      <span className="status-text">À la recherche d'un stage de 3 mois en informatique !</span>
+      <span className="status-text">À la recherche d'un stage de 2 mois (2/03 - 24/04) en informatique !</span>
     </div>
   )
 }

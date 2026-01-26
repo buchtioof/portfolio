@@ -1,0 +1,308 @@
+import '/src/assets/css/elements/bento.css';
+import React, {useState, useEffect} from 'react';
+import { useLetterboxd } from '/src/components/elements/hooks/Letterboxd';
+import {
+    GithubLogo,
+    LinkedinLogo,
+    DribbbleLogo,
+    MusicNotes,
+    MapPin,
+    Atom,
+    FigmaLogo,
+    LinuxLogo,
+    TerminalWindow,
+    Cube,
+    Database, 
+    FilmStrip
+} from '@phosphor-icons/react';
+
+// --- SOUS-COMPOSANT POUR LE SLIDER SOCIAL ---
+const SocialSlider = ({slides}) => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+        }, 3000);
+
+        return() => clearInterval(interval);
+    }, [slides.length]);
+
+    const currentSlide = slides[currentIndex];
+
+    return (
+        <a href={
+                currentSlide.link
+            }
+            target="_blank"
+            rel="noreferrer"
+            className="bento-inner social-slider"
+            style={
+                {'--hover-color': currentSlide.color}
+        }>
+            <div className="slide-content"
+                key={currentIndex}>
+                <div className="social-icon">
+                    {
+                    currentSlide.icon
+                }</div>
+                <span>{
+                    currentSlide.label
+                }</span>
+            </div>
+
+            <div className="slider-dots">
+                {
+                slides.map((_, idx) => (
+                    <span key={idx}
+                        className={
+                            `dot ${
+                                idx === currentIndex ? 'active' : ''
+                            }`
+                    }></span>
+                ))
+            } </div>
+        </a>
+    );
+};
+
+export default function BentoAbout() {
+    const { lastMovie, loading } = useLetterboxd('selectokebab');
+    const tiles = [
+        {
+            id: 1,
+            type: 'bio',
+            title: "Qui suis-je ?",
+            content: "Bienvenue chez moi ! L'idée de ce site, c'est de me présenter, mon parcours et mes compétences tout en ajoutant ma petite touche personnelle, c'est en tout cas l'envie derrière ce projet. Moi c'est Ramzi Idir, je suis étudiant en Devops et j'ai pour objectif à terme de devenir Développeur full-stack et Administrateur systèmes. En dehors de ça, j'ai un amour énorme pour l'UI bien fait ainsi que pour l'expérience utilisateur réfléchie. Mis à part le numérique, je suis un grand fan de musique et de cinéma, passions que j'alimente en diggant de nouveaux albums ou en allant régulièrement au cinéma. Merci à vous de passer me voir dans mon espace personnel et à très vite je l'espère !",
+            image: "/img/assets/pp.jpg",
+            size: 'large'
+        },
+        {
+            id: 2,
+            type: 'map',
+            title: "Localisation",
+            content: "Paris, France",
+            size: 'square'
+        },
+        {
+            id: 3,
+            type: 'social-slider',
+            size: 'square',
+            slides: [
+                {
+                    icon: <GithubLogo size={32}
+                        weight="fill"/>,
+                    label: "/buchtioof",
+                    link: "https://github.com/buchtioof",
+                    color: "#333"
+                }, {
+                    icon: <LinkedinLogo size={32}
+                        weight="fill"/>,
+                    label: "/ramziidir",
+                    link: "https://linkedin.com/in/ramziidir",
+                    color: "#0077b5"
+                }, {
+                    icon: <DribbbleLogo size={32}
+                        weight="fill"/>,
+                    label: "/ramziii__",
+                    link: "https://dribbble.com/ramziii__",
+                    color: "#ff74d5"
+                }
+            ]
+        },
+        {
+            id: 4,
+            type: 'stack',
+            title: "Ma Stack Technique",
+            icons: [
+                {
+                    icon: <Atom size={24}
+                        weight="duotone"/>,
+                    name: "React"
+                },
+                {
+                    icon: <TerminalWindow size={24}
+                        weight="duotone"/>,
+                    name: "Node/JS"
+                },
+                {
+                    icon: <Database size={24}
+                        weight="duotone"/>,
+                    name: "PhP/SQL"
+                },
+                {
+                    icon: <FigmaLogo size={24}
+                        weight="duotone"/>,
+                    name: "Figma"
+                }, {
+                    icon: <LinuxLogo size={24}
+                        weight="duotone"/>,
+                    name: "Linux/Bash"
+                }, {
+                    icon: <Cube size={24}
+                        weight="duotone"/>,
+                    name: "Docker"
+                },
+            ],
+            size: 'wide'
+        }, {
+            id: 5,
+            type: 'music',
+            title: "En boucle",
+            content: "Daft Punk - Veridis Quo",
+            size: 'wide'
+        }, {
+            id: 7,
+            type: 'movie',
+            size: 'wide'
+        },
+    ];
+
+    const renderContent = (tile) => {
+        switch (tile.type) {
+            case 'bio':
+                return (
+                    <div className="bento-inner bio">
+                        <div className="bio-text">
+                            <h3>{
+                                tile.title
+                            }</h3>
+                            <p>{
+                                tile.content
+                            }</p>
+                        </div>
+                        <div className="bio-image">
+                            <img src={
+                                    tile.image
+                                }
+                                alt="Profile"/>
+                        </div>
+                    </div>
+                );
+            case 'map':
+                return (
+                    <div className="bento-inner map">
+                        <div className="map-bg"></div>
+                        <div className="map-pin">
+                            {/* Icone Phosphor MapPin */}
+                            <MapPin size={32}
+                                weight="fill"
+                                color="#ff5555"/>
+                            <span>{
+                                tile.content
+                            }</span>
+                        </div>
+                    </div>
+                );
+            case 'social-slider':
+                return <SocialSlider slides={
+                    tile.slides
+                }/>;
+            case 'stack':
+                return (
+                    <div className="bento-inner stack">
+                        <h3>{
+                            tile.title
+                        }</h3>
+                        <div className="stack-grid">
+                            {
+                            tile.icons.map((tech, i) => (
+                                <div key={i}
+                                    className="tech-item">
+                                    {
+                                    tech.icon
+                                }
+                                    <span>{
+                                        tech.name
+                                    }</span>
+                                </div>
+                            ))
+                        } </div>
+                    </div>
+                );
+            case 'music':
+                return (
+                    <div className="bento-inner music">
+                        <div className="music-icon">
+                            <MusicNotes size={40}
+                                weight="fill"/>
+                        </div>
+                        <div className="music-info">
+                            <span>Lecture en cours...</span>
+                            <div className="scrolling-text">
+                                {
+                                tile.content
+                            }</div>
+                        </div>
+                        <div className="equalizer">
+                            <span className="bar"></span>
+                            <span className="bar"></span>
+                            <span className="bar"></span>
+                        </div>
+                    </div>
+                );
+            case 'movie':
+                if (loading) return (
+                    <div className="bento-inner movie loading">
+                         <div className="movie-content centered">
+                            <span>Loading...</span>
+                         </div>
+                    </div>
+                );
+
+                if (!lastMovie) return (
+                    <div className="bento-inner movie error">
+                        <div className="movie-content">
+                            <span>Film introuvable</span>
+                        </div>
+                    </div>
+                );
+
+                return (
+                    <a 
+                        href="/"
+                        className="bento-inner movie" 
+                        style={{
+                            backgroundImage: `url(${lastMovie.image})`,
+                            textDecoration: 'none'
+                        }}
+                    >
+                        <div className="movie-overlay"></div>
+                        <div className="movie-content">
+                            <div className="movie-icon">
+                                <FilmStrip size={24} weight="fill" />
+                            </div>
+                            <div className="movie-info">
+                                <span>Last Watch</span>
+                                <h4>{lastMovie.title}</h4>
+                                <span className="movie-rating">{lastMovie.rating}</span>
+                            </div>
+                        </div>
+                    </a>
+                );
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <div className="bento-about-container">
+            {
+            tiles.map((tile) => (
+                <div key={
+                        tile.id
+                    }
+                    className={
+                        `bento-tile ${
+                            tile.size
+                        } ${
+                            tile.type
+                        }`
+                }>
+                    {
+                    renderContent(tile)
+                } </div>
+            ))
+        } </div>
+    );
+}
