@@ -9,24 +9,14 @@ import About from './pages/About.jsx'
 import Works from './pages/Works.jsx'
 
 export default function App() {
-    return (
-        <ReactLenis root>
-            <div className="App">
-                <Status/>
-                <Background/>
-                <main className="AppMain">
-                    <section id="home">
-                        <Home/>
-                    </section>
-                    <section id="works">
-                        <Works/>
-                    </section>
-                    <section id="about">
-                        <About/>
-                    </section>
-                    <Navbar/>
-                </main>
-            </div>
-        </ReactLenis>
-    );
+  return (
+      <div className="App">
+        <Status />
+        <Background />
+        <main className="AppMain">
+          <h1>Work in progress, see y'all asap!</h1>
+          <img src="https://media1.tenor.com/m/lSBXYvTZzP8AAAAC/man-standing.gif" alt="man standing" />
+        </main>
+      </div>
+  );
 }
