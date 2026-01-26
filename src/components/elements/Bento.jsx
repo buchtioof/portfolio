@@ -1,5 +1,6 @@
 import '/src/assets/css/elements/bento.css';
 import React, {useState, useEffect} from 'react';
+import { useLetterboxd } from '/src/components/elements/hooks/Letterboxd';
 import {
     GithubLogo,
     LinkedinLogo,
@@ -22,7 +23,7 @@ const SocialSlider = ({slides}) => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-        }, 3000); // Change toutes les 3 secondes
+        }, 3000);
 
         return() => clearInterval(interval);
     }, [slides.length]);
@@ -39,7 +40,6 @@ const SocialSlider = ({slides}) => {
             style={
                 {'--hover-color': currentSlide.color}
         }>
-            {/* La clé (key) force React à relancer l'animation CSS à chaque changement */}
             <div className="slide-content"
                 key={currentIndex}>
                 <div className="social-icon">
@@ -51,7 +51,6 @@ const SocialSlider = ({slides}) => {
                 }</span>
             </div>
 
-            {/* Indicateurs de points en bas (optionnel, pour le style) */}
             <div className="slider-dots">
                 {
                 slides.map((_, idx) => (
@@ -68,6 +67,7 @@ const SocialSlider = ({slides}) => {
 };
 
 export default function BentoAbout() {
+    const { lastMovie, loading } = useLetterboxd('selectokebab');
     const tiles = [
         {
             id: 1,
@@ -114,8 +114,6 @@ export default function BentoAbout() {
             id: 4,
             type: 'stack',
             title: "Ma Stack Technique",
-            // Phosphor n'a pas tous les logos (ex: Node/Docker),
-            // on utilise donc des métaphores visuelles ou les logos dispos.
             icons: [
                 {
                     icon: <Atom size={24}
@@ -156,10 +154,7 @@ export default function BentoAbout() {
         }, {
             id: 7,
             type: 'movie',
-            title: "Dernier film vu",
-            content: "Interstellar", // Titre du film
-            image: "https://media.themoviedb.org/t/p/w1066_and_h600_face/vgnoBSVzWAV9sNQUORaDGvDp7wx.jpg", // URL de l'affiche (exemple Interstellar)
-            size: 'wide' // Format carré idéal pour une affiche rognée
+            size: 'wide'
         },
     ];
 
@@ -247,21 +242,44 @@ export default function BentoAbout() {
                     </div>
                 );
             case 'movie':
-              return (
-                  /* On met l'image en background directement */
-                  <div className="bento-inner movie" style={{backgroundImage: `url(${tile.image})`}}>
-                      <div className="movie-overlay"></div>
-                      <div className="movie-content">
-                          <div className="movie-icon">
-                              <FilmStrip size={24} weight="fill" />
-                          </div>
-                          <div className="movie-info">
-                              <span>Last Watch</span>
-                              <h4>{tile.content}</h4>
-                          </div>
-                      </div>
-                  </div>
-              );
+                if (loading) return (
+                    <div className="bento-inner movie loading">
+                         <div className="movie-content centered">
+                            <span>Loading...</span>
+                         </div>
+                    </div>
+                );
+
+                if (!lastMovie) return (
+                    <div className="bento-inner movie error">
+                        <div className="movie-content">
+                            <span>Film introuvable</span>
+                        </div>
+                    </div>
+                );
+
+                return (
+                    <a 
+                        href="/"
+                        className="bento-inner movie" 
+                        style={{
+                            backgroundImage: `url(${lastMovie.image})`,
+                            textDecoration: 'none'
+                        }}
+                    >
+                        <div className="movie-overlay"></div>
+                        <div className="movie-content">
+                            <div className="movie-icon">
+                                <FilmStrip size={24} weight="fill" />
+                            </div>
+                            <div className="movie-info">
+                                <span>Last Watch</span>
+                                <h4>{lastMovie.title}</h4>
+                                <span className="movie-rating">{lastMovie.rating}</span>
+                            </div>
+                        </div>
+                    </a>
+                );
             default:
                 return null;
         }

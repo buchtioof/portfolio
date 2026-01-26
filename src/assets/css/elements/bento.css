@@ -1,42 +1,28 @@
-/* =========================================
-   1. GRILLE PRINCIPALE (LAYOUT)
-   ========================================= */
 .bento-about-container {
     display: grid;
-    /* 4 colonnes égales */
     grid-template-columns: repeat(4, 1fr);
-    /* Hauteur fixe pour la régularité */
     grid-auto-rows: 180px; 
     gap: 20px;
-    
-    /* Largeur et marges */
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
-/* =========================================
-   2. STYLE DES TUILES (MATCH EXACT .card)
-   ========================================= */
 .bento-tile {
-    /* --- Style copié de .card (carousel.css) --- */
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px; /* Identique à tes cartes */
+    border-radius: 12px;
     box-sizing: border-box;
     
-    /* --- Comportement --- */
     overflow: hidden;
     position: relative;
     display: flex;
     flex-direction: column;
     
-    /* --- Transitions --- */
     transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
-/* Effet Hover identique au carousel */
 .bento-tile:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -44,12 +30,10 @@
     z-index: 2;
 }
 
-/* --- GESTION DES TAILLES (SPANS) --- */
 .bento-tile.large { grid-column: span 2; grid-row: span 2; }
 .bento-tile.wide { grid-column: span 2; }
 .bento-tile.square, .bento-tile.small { grid-column: span 1; }
 
-/* Responsive Mobile */
 @media (max-width: 768px) {
     .bento-about-container { grid-template-columns: 1fr; grid-auto-rows: auto; }
     .bento-tile.large, .bento-tile.wide, .bento-tile.square, .bento-tile.small {
@@ -57,37 +41,30 @@
     }
 }
 
-/* =========================================
-   3. CONTENU INTERNE COMMUN
-   ========================================= */
 .bento-inner {
     width: 100%;
     height: 100%;
-    padding: 20px; /* Identique au padding .card */
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     color: inherit;
     font-family: "Sora", sans-serif;
 }
 
-/* =========================================
-   4. WIDGET : BIO
-   ========================================= */
 .bento-inner.bio {
     flex-direction: column;
     justify-content: space-between;
-    /* Pas de fond spécifique, on garde celui de la tuile */
 }
 
 .bio-text h3 {
-    font-size: 1.3rem; /* Identique à .card h3 */
+    font-size: 1.3rem;
     margin: 0 0 10px 0;
     font-weight: 700;
     color: #fff;
 }
 
 .bio-text p {
-    color: rgba(255, 255, 255, 0.7); /* Identique à .card p */
+    color: rgba(255, 255, 255, 0.7);
     line-height: 1.5;
     font-size: 0.95rem;
     margin: 0;
@@ -102,9 +79,6 @@
     margin-top: 20px;
 }
 
-/* =========================================
-   5. WIDGET : MAP
-   ========================================= */
 .bento-inner.map {
     position: relative;
     align-items: center;
@@ -118,7 +92,7 @@
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/World_map_blank_without_borders.svg/1000px-World_map_blank_without_borders.svg.png');
     background-size: cover;
     background-position: center;
-    opacity: 0.3; /* Très subtil pour rester dans le thème sombre */
+    opacity: 0.3;
     filter: invert(1);
 }
 
@@ -133,9 +107,6 @@
     color: white;
 }
 
-/* =========================================
-   6. WIDGET : STACK TECHNIQUE
-   ========================================= */
 .bento-inner.stack {
     flex-direction: column;
 }
@@ -149,11 +120,10 @@
 .stack-grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px; /* Identique à .tags-container */
+    gap: 8px;
     margin-top: auto;
 }
 
-/* Style copié de .tag-pill (carousel.css) */
 .tech-item {
     display: flex;
     align-items: center;
@@ -161,8 +131,8 @@
     
     padding: 6px 14px;
     border-radius: 50px;
-    background: rgba(255, 255, 255, 0.05); /* Fond léger */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* Bordure subtile */
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     
     font-family: "Sora", sans-serif;
     font-weight: 600;
@@ -171,19 +141,14 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* =========================================
-   7. WIDGET : SOCIAL SLIDER
-   ========================================= */
 .bento-inner.social-slider {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     position: relative;
-    /* On garde le fond transparent de la carte */
 }
 
-/* Conteneur qui s'anime */
 .slide-content {
     display: flex;
     flex-direction: column;
@@ -199,19 +164,16 @@
 }
 
 .social-icon {
-    color: white; /* Les icones restent blanches pour la cohérence */
-    display: flex;
+    color: white;
     align-items: center;
     justify-content: center;
 }
 
-/* Animation Keyframes */
 @keyframes slideUpFade {
     0% { opacity: 0; transform: translateY(10px) scale(0.95); }
     100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Dots indicateurs */
 .slider-dots {
     position: absolute;
     bottom: 15px;
@@ -232,9 +194,6 @@
     transform: scale(1.2);
 }
 
-/* =========================================
-   8. WIDGET : SPOTIFY
-   ========================================= */
 .bento-inner.music {
     background: #fe2658;
     color: #ffffff;
@@ -295,10 +254,6 @@
     50% { height: 100%; }
 }
 
-/* =========================================
-   9. WIDGET : SOCIAL SLIDER (Nouveau)
-   ========================================= */
-
 .bento-inner.social-slider {
     flex-direction: column;
     align-items: center;
@@ -313,13 +268,11 @@
     background: var(--hover-color, #222);
 }
 
-/* Conteneur du contenu qui s'anime */
 .slide-content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    /* Animation d'entrée */
     animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -328,7 +281,6 @@
     font-size: 0.9rem;
 }
 
-/* L'animation keyframe */
 @keyframes slideUpFade {
     0% {
         opacity: 0;
@@ -340,7 +292,6 @@
     }
 }
 
-/* Les petits points en bas (Dots) */
 .slider-dots {
     position: absolute;
     bottom: 15px;
@@ -361,20 +312,13 @@
     transform: scale(1.2);
 }
 
-/* =========================================
-   10. WIDGET : MOVIE (LAST WATCH)
-   ========================================= */
-
 .bento-inner.movie {
     position: relative;
     background-size: cover;
     background-position: center;
-    /* Pas de padding ici pour que l'image aille aux bords, 
-       on gérera l'espacement via .movie-content */
     padding: 0; 
 }
 
-/* Dégradé pour rendre le texte lisible sur l'image */
 .movie-overlay {
     position: absolute;
     inset: 0;
@@ -383,7 +327,6 @@
     transition: opacity 0.3s ease;
 }
 
-/* Au survol, on assombrit un peu plus pour faire ressortir le texte */
 .bento-tile:hover .movie-overlay {
     background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.4) 100%);
 }
@@ -395,13 +338,13 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Icone en haut, Texte en bas */
+    justify-content: space-between;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .movie-icon {
-    align-self: flex-end; /* Icone en haut à droite */
+    align-self: flex-end;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(4px);
     width: 36px;

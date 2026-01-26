@@ -2,12 +2,12 @@
 
 # Portfolio perso
 
-## 🌟 Présentation
+## Présentation
 Le projet est de mettre un pied dans le dev web avec JS et React en faisant mon portfolio de projets persos en utilisant React et ensuite l'héberger. L'idée n'est pas de trop se prendre la tête mais d'experimenter un maximum, prendre des habitudes comme avec les commits Git par exemple ! Le projet est fouilli mais avec le temps, je passerais au fur et a mesure des coups de balais pour rendre le projet le plus propre.
 
 ---
 
-## ⚙️ Structure du projet
+## Structure du projet
 
 Seuls les fichiers principaux sont mentionnés
 
@@ -40,13 +40,13 @@ portfolio/
 ``` npm run dev ```
 ---
 
-## 🚀 Mise en ligne
+## Mise en ligne
 
 [Lien vers le site](https://www.ramziidir.dev) hébergé sur Vercel
 
 ---
 
-## 📅 Changelog
+## Changelog
 
 **Version 0** — Commit de base, demarrage du projet React avec Vite
 
@@ -60,7 +60,7 @@ portfolio/
 
 ---
 
-## 👑 Crédits
+## Crédits
 
 - [Phosphor Icons](https://github.com/phosphor-icons/react) pour les icones
 - [Google Fonts](https://fonts.google.com/) pour les polices ([Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif), [Sora](https://fonts.google.com/specimen/Sora/))
