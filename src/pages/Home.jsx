@@ -42,7 +42,7 @@ export default function Home() {
                             <span>/ramziidir</span>
                         </a>
 
-                        <a className="button mail" target="_blank" rel="noopener noreferrer" href="" aria-label="Contact">
+                        <a className="button mail" target="_blank" rel="noopener noreferrer" href="mailto:idir.ramzi@icloud.com" aria-label="Contact">
                             <AtIcon size={24}
                                 weight="bold"/>
                             <span>e-mail</span>
