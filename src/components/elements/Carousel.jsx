@@ -14,35 +14,39 @@ const projects = [
     {
         id: 1,
         title: "grabber",
-        description: "Interface admin pour parcs informatique",
+        description: "Projet d'interface administrateur pour parcs informatique",
         image: "https://github.com/buchtioof/grabber/blob/main/assets/logo.png?raw=true",
         link: "https://github.com/buchtioof/grabber",
-        tags: [ { name: "Linux", color: "#264de4" }, { name: "Shell", color: "#4b443a" }, { name: "Github", color: "#5e6067" } ]
+        tags: [ { name: "Python (FastAPI/Uvicorn)", color: "#8898dc" }, { name: "Bash", color: "#4b443a" }, { name: "SQLite", color: "#bdaad8" }, { name: "Github", color: "#5e6067" } ]
     },
     {
         id: 2,
         title: "Charte graphique personnelle",
         image: "/img/assets/projects/charte.png",
+        description: "Charte graphique actuelle de mes projets personnels (Fichier figma en préparation !)",
         tags: [ { name: "Figma", color: "#ff9b9b" }, { name: "Illustrator", color: "#fbb034" } ]
     },
     {
         id: 3,
         title: "Porfolio",
         image: "/img/assets/projects/portfolio.png",
+        description: "Site sur lequel vous êtes actuellement !",
         link: "https://github.com/buchtioof/portfolio",
-        tags: [ { name: "React", color: "#78c3d8" }, { name: "Vite", color: "#ae8adf" }, { name: "Javascript", color: "#d5ab49" }, { name: "Github", color: "#5e6067" } ]
+        tags: [ { name: "React", color: "#78c3d8" }, { name: "Vite", color: "#abdf8a" }, { name: "Javascript", color: "#d5ab49" }, { name: "Github", color: "#5e6067" } ]
     },
     {
         id: 4,
-        title: "Projet Universitaire de site PhP",
-        image: "",
-        link: "https://github.com/buchtioof/php-json",
-        tags: [ { name: "PhP", color: "#787ad8" }, { name: "SQL", color: "#bdaad8" }, { name: "Javascript", color: "#d5ab49" }, { name: "JSON", color: "#5e6763" } ]
+        title: "Notes de cours/Docs",
+        image: "/img/assets/projects/docs.png",
+        description: "Instance zensical avec mes notes de cours et les docs de mes projets persos/pro (Pas très sérieux)",
+        link: "https://buchtioof.github.io/notes/",
+        tags: [ { name: "Python (Zensical)", color: "#8898dc" }, { name: "Docs", color: "#bdaad8" }, { name: "Markdown", color: "#5e6763" } ]
     },
     {
         id: 5,
         title: "dribbble shots",
         image: "/img/assets/projects/dribbble.png",
+        description: "Passe temps de designs que je publie sur mon dribbble",
         link: "https://dribbble.com/ramziii__",
         tags: [ { name: "Figma", color: "#ff9b9b" }, { name: "Illustrator", color: "#fbb034" }, { name: "Photoshop", color: "#345cfb" } ]
     },
