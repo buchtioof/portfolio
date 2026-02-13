@@ -14,8 +14,8 @@ const projects = [
     {
         id: 1,
         title: "grabber",
-        description: "'Fetch' toutes les informations d'un PC sous linux",
-        image: "https://github.com/buchtioof/grabber/blob/main/logo.png?raw=true",
+        description: "Interface admin pour parcs informatique",
+        image: "https://github.com/buchtioof/grabber/blob/main/assets/logo.png?raw=true",
         link: "https://github.com/buchtioof/grabber",
         tags: [ { name: "Linux", color: "#264de4" }, { name: "Shell", color: "#4b443a" }, { name: "Github", color: "#5e6067" } ]
     },

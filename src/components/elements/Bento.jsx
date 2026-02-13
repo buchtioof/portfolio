@@ -1,6 +1,7 @@
 import '/src/assets/css/elements/bento.css';
 import React, {useState, useEffect} from 'react';
 import { useLetterboxd } from '/src/components/elements/hooks/Letterboxd';
+import { useLastFM } from '/src/components/elements/hooks/Lastfm';
 import {
     GithubLogo,
     LinkedinLogo,
@@ -13,8 +14,11 @@ import {
     TerminalWindow,
     Cube,
     Database, 
-    FilmStrip
+    FilmStrip,
+    MusicNoteIcon,
+    Spinner
 } from '@phosphor-icons/react';
+
 
 // --- SOUS-COMPOSANT POUR LE SLIDER SOCIAL ---
 const SocialSlider = ({slides}) => {
@@ -67,7 +71,12 @@ const SocialSlider = ({slides}) => {
 };
 
 export default function BentoAbout() {
+    const apiKey = import.meta.env.VITE_LASTFM_API_KEY;
+    const username = import.meta.env.VITE_LASTFM_USERNAME;
+    const { topArtist, loading: artistLoading } = useLastFM(username, apiKey);
+
     const { lastMovie, loading } = useLetterboxd('selectokebab');
+
     const tiles = [
         {
             id: 1,
@@ -145,14 +154,14 @@ export default function BentoAbout() {
                 },
             ],
             size: 'wide'
-        }, {
+        }, 
+        {
             id: 5,
-            type: 'music',
-            title: "En boucle",
-            content: "Daft Punk - Veridis Quo",
+            type: 'top-artist',
             size: 'wide'
-        }, {
-            id: 7,
+        }, 
+        {
+            id: 6,
             type: 'movie',
             size: 'wide'
         },
@@ -184,7 +193,6 @@ export default function BentoAbout() {
                     <div className="bento-inner map">
                         <div className="map-bg"></div>
                         <div className="map-pin">
-                            {/* Icone Phosphor MapPin */}
                             <MapPin size={32}
                                 weight="fill"
                                 color="#ff5555"/>
@@ -220,26 +228,49 @@ export default function BentoAbout() {
                         } </div>
                     </div>
                 );
-            case 'music':
+            case 'top-artist':
+                if (artistLoading) {
+                    return (
+                        <div className="bento-inner artist loading">
+                            <div className="music-content centered">
+                                <span style={{opacity: 0.5, fontSize: '0.8rem'}}>Chargement...</span>
+                            </div>
+                        </div>
+                    );
+                }
+
+                if (!topArtist) return null;
+
                 return (
-                    <div className="bento-inner music">
-                        <div className="music-icon">
-                            <MusicNotes size={40}
-                                weight="fill"/>
+                    <a 
+                        href={topArtist.link} 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="bento-inner artist" 
+                        style={{
+                            // Si l'image existe, on l'affiche. Sinon, un fond gris foncé élégant.
+                            backgroundImage: topArtist.image ? `url(${topArtist.image})` : 'linear-gradient(to bottom right, #333, #111)',
+                            textDecoration: 'none'
+                        }}
+                    >
+                        <div className="music-overlay"></div>
+                        
+                        <div className="music-content">
+                            <div className="music-icon">
+                                {/* Icône Micro */}
+                                <MusicNoteIcon size={24} weight="fill" color="#FFF" />
+                            </div>
+                            
+                            <div className="music-info">
+                                <span>Artist of the week</span>
+                                <h4>{topArtist.name}</h4>
+                                
+                                <span className="play-count">
+                                    {topArtist.playcount} écoutes
+                                </span>
+                            </div>
                         </div>
-                        <div className="music-info">
-                            <span>Lecture en cours...</span>
-                            <div className="scrolling-text">
-                                {
-                                tile.content
-                            }</div>
-                        </div>
-                        <div className="equalizer">
-                            <span className="bar"></span>
-                            <span className="bar"></span>
-                            <span className="bar"></span>
-                        </div>
-                    </div>
+                    </a>
                 );
             case 'movie':
                 if (loading) return (
@@ -287,22 +318,11 @@ export default function BentoAbout() {
 
     return (
         <div className="bento-about-container">
-            {
-            tiles.map((tile) => (
-                <div key={
-                        tile.id
-                    }
-                    className={
-                        `bento-tile ${
-                            tile.size
-                        } ${
-                            tile.type
-                        }`
-                }>
-                    {
-                    renderContent(tile)
-                } </div>
-            ))
-        } </div>
+            {tiles.map((tile) => (
+                <div key={tile.id} className={`bento-tile ${tile.size} ${tile.type}`}>
+                    {renderContent(tile)}
+                </div>
+            ))}
+        </div>
     );
 }
