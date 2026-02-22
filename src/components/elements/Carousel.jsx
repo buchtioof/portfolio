@@ -15,7 +15,7 @@ const projects = [
         id: 1,
         title: "grabber",
         description: "Projet d'interface administrateur pour parcs informatique",
-        image: "https://github.com/buchtioof/grabber/blob/main/assets/logo.png?raw=true",
+        image: "/img/assets/projects/grabber.png",
         link: "https://github.com/buchtioof/grabber",
         tags: [ { name: "Python (FastAPI/Uvicorn)", color: "#8898dc" }, { name: "Bash", color: "#4b443a" }, { name: "SQLite", color: "#bdaad8" }, { name: "Github", color: "#5e6067" } ]
     },
