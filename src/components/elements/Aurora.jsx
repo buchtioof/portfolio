@@ -11,7 +11,6 @@ void main() {
 const FRAG = `#version 300 es
 precision highp float;
 
-// MODIFIÉ : On passe de 6 à 10
 const int MAX_STOPS = 10;
 
 uniform float uTime;
