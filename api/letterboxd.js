@@ -10,7 +10,6 @@ export default async function handler(req, res) {
     const parser = new Parser();
 
     try {
-        // Le serveur va lire le XML de Letterboxd directement
         const feed = await parser.parseURL(`https://letterboxd.com/${username}/rss/`);
 
         if (!feed.items || feed.items.length === 0) {
@@ -19,17 +18,14 @@ export default async function handler(req, res) {
 
         const movie = feed.items[0];
 
-        // Extraction de l'image depuis le HTML contenu dans le flux RSS
         const imgRegex = /src="([^"]+)"/;
         const match = movie.content.match(imgRegex);
         const posterUrl = match ? match[1] : null;
 
-        // Nettoyage du titre
         const parts = movie.title.split(' - ');
         const cleanTitle = parts[0];
         const ratingStr = parts[1] || "Watched";
 
-        // Envoi des données formatées
         return res.status(200).json({
             title: cleanTitle,
             image: posterUrl,

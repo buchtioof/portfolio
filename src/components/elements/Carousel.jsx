@@ -1,10 +1,5 @@
-import React from 'react';
-
-// Import des composants Swiper React
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-
-// Import des styles Swiper obligatoires
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -13,21 +8,29 @@ import '/src/assets/css/elements/carousel.css';
 const projects = [
     {
         id: 1,
+        title: "Stage de fin d'année",
+        description: "Installation d'un serveur Debian et developpement d'un panel Administrateur",
+        image: "/img/assets/projects/.png",
+        link: "https://buchtioof.github.io/notes/projects/stage/main/",
+        tags: [ { name: "Python (Django)", color: "#8898dc" }, { name: "Bash", color: "#4b443a" }, { name: "C", color: "#0f18c2" }, { name: "API", color: "#d2a3cc" }, { name: "Config. Réseau", color: "#23c158" } ]
+    },
+    {
+        id: 2,
         title: "grabber",
         description: "Projet d'interface administrateur pour parcs informatique",
         image: "/img/assets/projects/grabber.png",
         link: "https://github.com/buchtioof/grabber",
-        tags: [ { name: "Python (FastAPI/Uvicorn)", color: "#8898dc" }, { name: "Bash", color: "#4b443a" }, { name: "SQLite", color: "#bdaad8" }, { name: "Github", color: "#5e6067" } ]
+        tags: [ { name: "Python (Django)", color: "#8898dc" }, { name: "Bash", color: "#4b443a" }, { name: "Docker", color: "#61c5ff" }, { name: "SQLite", color: "#bdaad8" } ]
     },
     {
-        id: 2,
+        id: 3,
         title: "Charte graphique personnelle",
         image: "/img/assets/projects/charte.png",
         description: "Charte graphique actuelle de mes projets personnels (Fichier figma en préparation !)",
         tags: [ { name: "Figma", color: "#ff9b9b" }, { name: "Illustrator", color: "#fbb034" } ]
     },
     {
-        id: 3,
+        id: 4,
         title: "Porfolio",
         image: "/img/assets/projects/portfolio.png",
         description: "Site sur lequel vous êtes actuellement !",
@@ -35,7 +38,7 @@ const projects = [
         tags: [ { name: "React", color: "#78c3d8" }, { name: "Vite", color: "#abdf8a" }, { name: "Javascript", color: "#d5ab49" }, { name: "Github", color: "#5e6067" } ]
     },
     {
-        id: 4,
+        id: 5,
         title: "Notes de cours/Docs",
         image: "/img/assets/projects/docs.png",
         description: "Instance zensical avec mes notes de cours et les docs de mes projets persos/pro (Pas très sérieux)",
@@ -43,7 +46,7 @@ const projects = [
         tags: [ { name: "Python (Zensical)", color: "#8898dc" }, { name: "Docs", color: "#bdaad8" }, { name: "Markdown", color: "#5e6763" } ]
     },
     {
-        id: 5,
+        id: 6,
         title: "dribbble shots",
         image: "/img/assets/projects/dribbble.png",
         description: "Passe temps de designs que je publie sur mon dribbble",
@@ -56,20 +59,15 @@ const CarouselProjects = () => {
     return (
         <div className="carousel-wrapper">
             <Swiper
-                // Modules swiper
                 modules={[Navigation]}
-                
-                // Espacement entre les slides
                 spaceBetween={30}
                 
-                // Configuration Responsive
                 breakpoints={{
                     640: { slidesPerView: 1 }, // Mobile
                     768: { slidesPerView: 2 }, // Tablette
                     1024: { slidesPerView: 3 }, // Desktop
                 }}
                 
-                // Connexion aux boutons personnalisés (via les classes CSS)
                 navigation={{
                     nextEl: '.custom-next',
                     prevEl: '.custom-prev',
