@@ -6,7 +6,6 @@ import {
     GithubLogo,
     LinkedinLogo,
     DribbbleLogo,
-    MusicNotes,
     MapPin,
     Atom,
     FigmaLogo,
@@ -15,8 +14,7 @@ import {
     Cube,
     Database, 
     FilmStrip,
-    MusicNoteIcon,
-    Spinner
+    MusicNoteIcon
 } from '@phosphor-icons/react';
 
 
@@ -70,14 +68,7 @@ const SocialSlider = ({slides}) => {
     );
 };
 
-export default function BentoAbout() {
-    const apiKey = import.meta.env.VITE_LASTFM_API_KEY;
-    const username = import.meta.env.VITE_LASTFM_USERNAME;
-    const { topArtist, loading: artistLoading } = useLastFM(username, apiKey);
-
-    const { lastMovie, loading } = useLetterboxd('selectokebab');
-
-    const tiles = [
+const tiles = [
         {
             id: 1,
             type: 'bio',
@@ -166,6 +157,11 @@ export default function BentoAbout() {
             size: 'wide'
         },
     ];
+
+export default function BentoAbout() {
+    const { topArtist, loading: artistLoading } = useLastFM();;
+
+    const { lastMovie, loading } = useLetterboxd('selectokebab');
 
     const renderContent = (tile) => {
         switch (tile.type) {

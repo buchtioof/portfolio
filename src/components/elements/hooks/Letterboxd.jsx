@@ -15,10 +15,10 @@ export const useLetterboxd = (username) => {
                 if (data.items && data.items.length > 0) {
                     const movie = data.items[0];
 
-                    // Extraction de l'image (affiche)
-                    const imgRegex = /src="([^"]+)"/;
-                    const match = movie.description.match(imgRegex);
-                    const posterUrl = match ? match[1] : null;
+                    const parser = new DOMParser();
+                    const htmlDocument = parser.parseFromString(movie.description, "text/html");
+                    const imgElement = htmlDocument.querySelector('img');
+                    const posterUrl = imgElement ? imgElement.src : null;
 
                     const parts = movie.title.split(' - ');
                     const cleanTitle = parts[0];

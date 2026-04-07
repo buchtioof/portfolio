@@ -1,5 +1,4 @@
 import {GithubLogoIcon, DribbbleLogoIcon, LinkedinLogoIcon, AtIcon} from "@phosphor-icons/react"
-import Draggable from "react-draggable";
 import Buddy from "../components/elements/Buddy"
 import WordPopover from "../components/elements/WordPopover"
 import '../assets/css/home.css';
@@ -13,7 +12,7 @@ export default function Home() {
                     <h1 className="p_hero">
                         salut, moi c'est ramzi idir ! étudiant en informatique au
                         <br></br>
-                        <a href="https://maps.apple.com/place?place-id=I98611BA115CE2DF1&address=292+Rue+Saint-Martin%2C+75003+Paris%2C+France&coordinate=48.86642604034651%2C2.354974150657654&name=Conservatoire+national+des+arts+et+m%C3%A9tiers" target="_blank">
+                        <a href="https://maps.apple.com/place?place-id=I98611BA115CE2DF1&address=292+Rue+Saint-Martin%2C+75003+Paris%2C+France&coordinate=48.86642604034651%2C2.354974150657654&name=Conservatoire+national+des+arts+et+m%C3%A9tiers" rel="noopener noreferrer" target="_blank">
                             <WordPopover 
                                 word="Conservatoire National des Arts et Métiers à Paris." 
                                 title="Conservatoire National des Arts et Métiers" 
@@ -50,7 +49,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }
