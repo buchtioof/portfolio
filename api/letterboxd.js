@@ -26,10 +26,12 @@ export default async function handler(req, res) {
         const cleanTitle = parts[0];
         const ratingStr = parts[1] || "Watched";
 
+        const cleanLink = movie.link.replace(`/${username}/`, '/');
+
         return res.status(200).json({
             title: cleanTitle,
             image: posterUrl,
-            link: movie.link,
+            link: cleanLink,
             rating: ratingStr,
             date: movie.pubDate
         });
