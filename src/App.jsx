@@ -7,6 +7,7 @@ import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Works from './pages/Works.jsx'
+import { Analytics } from "@vercel/analytics/next"
 
 export default function App() {
     return (
